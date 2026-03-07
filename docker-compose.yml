@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  # PostgreSQL 数据库
+  postgres:
+    image: postgres:15-alpine
+    container_name: firegrid-db
+    environment:
+      POSTGRES_USER: firegrid
+      POSTGRES_PASSWORD: firegrid123
+      POSTGRES_DB: firegrid
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U firegrid"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # NestJS 后端服务
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: firegrid-backend
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://firegrid:firegrid123@postgres:5432/firegrid?schema=public
+      - JWT_SECRET=your-super-secret-jwt-key-change-in-production
+      - PORT=3000
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    command: sh -c "npx prisma migrate deploy && npm run start:prod"
+
+  # Redis (可选，用于缓存)
+  redis:
+    image: redis:7-alpine
+    container_name: firegrid-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  postgres_data:
+  redis_data:

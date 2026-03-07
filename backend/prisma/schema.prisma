@@ -1,0 +1,252 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// 用户表 - 基础信息
+model User {
+  id            String    @id @default(uuid())
+  openId        String    @unique @map("open_id") // 微信OpenID
+  phone         String?   @unique // 手机号
+  nickname      String?   // 昵称
+  avatar        String?   // 头像URL
+  role          UserRole  @default(GUEST) // 角色
+  status        UserStatus @default(ACTIVE) // 状态
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+  
+  // 关联
+  firefighterProfile  FirefighterProfile?
+  supplierProfile     SupplierProfile?
+  aiPromptLogs        AIPromptLog[]
+  favorites           Favorite[]
+  
+  @@map("users")
+}
+
+// 消防核心用户档案 (C/G端)
+model FirefighterProfile {
+  id              String    @id @default(uuid())
+  userId          String    @unique @map("user_id")
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // 职业信息
+  rank            String?   // 职级
+  department      String?   // 部门
+  region          String?   // 所在地区
+  certification   String?   // 认证信息
+  
+  // 偏好设置
+  favoriteCategories String[] @default([]) @map("favorite_categories") // 关注的器材类目
+  trainingHours   Int       @default(0) @map("training_hours") // 培训时长
+  
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+  
+  @@map("firefighter_profiles")
+}
+
+// 供应商档案 (B端)
+model SupplierProfile {
+  id              String    @id @default(uuid())
+  userId          String    @unique @map("user_id")
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // 企业信息
+  companyName     String    @map("company_name")
+  businessLicense String?   @map("business_license") // 营业执照
+  mainCategories  String[]  @default([]) @map("main_categories") // 主营类目
+  contactPhone    String?   @map("contact_phone")
+  contactEmail    String?   @map("contact_email")
+  address         String?   // 地址
+  
+  // 订阅等级
+  subscription    SubscriptionTier @default(FREE) @map("subscription_tier")
+  
+  // 产品关联
+  products        Equipment[]
+  
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+  
+  @@map("supplier_profiles")
+}
+
+// 装备表
+model Equipment {
+  id              String    @id @default(uuid())
+  name            String    // 装备名称
+  manufacturer    String    // 制造商
+  category        String    // 类别
+  subCategory     String?   @map("sub_category") // 子类别
+  standards       String[]  // 合规标准
+  
+  // 结构化参数 (JSONB)
+  parameters      Json      @default("{}") @map("parameters")
+  
+  // 描述和图片
+  description     String?   @db.Text
+  images          String[]  @default([])
+  
+  // 供应商关联
+  supplierId      String    @map("supplier_id")
+  supplier        SupplierProfile @relation(fields: [supplierId], references: [id])
+  
+  // 评价关联
+  reviews         Review[]
+  
+  // 收藏关联
+  favorites       Favorite[]
+  
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+  
+  @@map("equipment")
+}
+
+// 评价表
+model Review {
+  id            String    @id @default(uuid())
+  equipmentId   String    @map("equipment_id")
+  equipment     Equipment @relation(fields: [equipmentId], references: [id], onDelete: Cascade)
+  
+  userId        String    @map("user_id")
+  rating        Int       // 评分 1-5
+  content       String?   @db.Text
+  
+  createdAt     DateTime  @default(now()) @map("created_at")
+  
+  @@map("reviews")
+}
+
+// 收藏表
+model Favorite {
+  id            String    @id @default(uuid())
+  userId        String    @map("user_id")
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  equipmentId   String    @map("equipment_id")
+  equipment     Equipment @relation(fields: [equipmentId], references: [id], onDelete: Cascade)
+  
+  createdAt     DateTime  @default(now()) @map("created_at")
+  
+  @@unique([userId, equipmentId])
+  @@map("favorites")
+}
+
+// 招投标信息表
+model Tender {
+  id              String    @id @default(uuid())
+  title           String    // 标题
+  tenderId        String?   @unique @map("tender_id") // 招标公告ID
+  purchaser       String    // 采购单位
+  amount          Decimal?  @db.Decimal(15, 2) // 金额
+  status          TenderStatus @default(OPEN) // 状态
+  publishDate     DateTime  @map("publish_date") // 发布时间
+  deadline        DateTime? // 截止日期
+  region          String?   // 地区
+  category        String?   // 类目
+  url             String?   // 原文链接
+  content         String?   @db.Text // 内容摘要
+  
+  // 中标信息
+  winner          String?   // 中标企业
+  winAmount       Decimal?  @map("win_amount") @db.Decimal(15, 2) // 中标金额
+  
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+  
+  @@map("tenders")
+}
+
+// AI生成记录表
+model AIPromptLog {
+  id            String    @id @default(uuid())
+  userId        String    @map("user_id")
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // 输入参数
+  category      String    // 装备类别
+  budget        String?   // 预算
+  requirements  String?   @db.Text // 核心参数要求
+  
+  // 输出结果
+  output        String    @db.Text // 生成的文档
+  
+  // 模型信息
+  model         String    @default("gpt-4") // 使用的模型
+  tokens        Int?      // 消耗的token数
+  
+  createdAt     DateTime  @default(now()) @map("created_at")
+  
+  @@map("ai_prompt_logs")
+}
+
+// 资讯文章表
+model Article {
+  id            String    @id @default(uuid())
+  title         String
+  summary       String?   // 摘要
+  content       String?   @db.Text // 内容（可为空，外链）
+  coverImage    String?   @map("cover_image") // 封面图
+  author        String?   // 作者
+  source        String?   // 来源
+  sourceUrl     String?   @map("source_url") // 原文链接
+  category      String    // 分类
+  tags          String[]  @default([])
+  
+  // 类型: article(文章) | video(视频) | case(案例)
+  type          ContentType @default(ARTICLE)
+  
+  // 统计数据
+  viewCount     Int       @default(0) @map("view_count")
+  likeCount     Int       @default(0) @map("like_count")
+  
+  isPublished   Boolean   @default(true) @map("is_published")
+  publishAt     DateTime  @default(now()) @map("publish_at")
+  
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+  
+  @@map("articles")
+}
+
+// 枚举定义
+enum UserRole {
+  GUEST       // 游客
+  FIREFIGHTER // 消防核心用户
+  SUPPLIER    // 供应商
+  ADMIN       // 管理员
+}
+
+enum UserStatus {
+  ACTIVE    // 活跃
+  INACTIVE  // 未激活
+  SUSPENDED // 停用
+}
+
+enum SubscriptionTier {
+  FREE      // 免费版
+  PRO       // 专业版
+  ENTERPRISE // 企业版
+}
+
+enum TenderStatus {
+  OPEN      // 招标中
+  CLOSED    // 已截止
+  AWARDED   // 已中标
+  CANCELLED // 已流标
+}
+
+enum ContentType {
+  ARTICLE // 文章
+  VIDEO   // 视频
+  CASE    // 案例
+}
