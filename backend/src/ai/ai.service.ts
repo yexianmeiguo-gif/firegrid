@@ -16,29 +16,42 @@ export class AIService {
     const tencentSecretId = process.env.TENCENTCLOUD_SECRET_ID;
     const tencentSecretKey = process.env.TENCENTCLOUD_SECRET_KEY;
     
+    console.log('AI Service initializing...');
+    console.log('TENCENTCLOUD_SECRET_ID exists:', !!tencentSecretId);
+    console.log('TENCENTCLOUD_SECRET_KEY exists:', !!tencentSecretKey);
+    
     if (tencentSecretId && tencentSecretKey) {
       // 使用腾讯云混元
       this.useHunyuan = true;
       
-      const clientConfig = {
-        credential: {
-          secretId: tencentSecretId,
-          secretKey: tencentSecretKey,
-        },
-        region: process.env.TENCENTCLOUD_REGION || 'ap-guangzhou',
-        profile: {
-          signMethod: 'TC3-HMAC-SHA256' as 'TC3-HMAC-SHA256',
-          httpProfile: {
-            reqMethod: 'POST' as 'POST',
-            reqTimeout: 30,
+      try {
+        const clientConfig = {
+          credential: {
+            secretId: tencentSecretId,
+            secretKey: tencentSecretKey,
           },
-        },
-      };
-      
-      this.hunyuanClient = new HunyuanClient(clientConfig);
-      console.log('AI Service initialized with Tencent Hunyuan');
+          region: process.env.TENCENTCLOUD_REGION || 'ap-guangzhou',
+          profile: {
+            signMethod: 'TC3-HMAC-SHA256' as 'TC3-HMAC-SHA256',
+            httpProfile: {
+              reqMethod: 'POST' as 'POST',
+              reqTimeout: 30,
+            },
+          },
+        };
+        
+        this.hunyuanClient = new HunyuanClient(clientConfig);
+        console.log('✅ AI Service initialized with Tencent Hunyuan');
+      } catch (error) {
+        console.error('❌ Failed to initialize Hunyuan client:', error);
+        this.useHunyuan = false;
+      }
     } else {
-      // 使用 OpenAI / Kimi 兼容格式
+      console.log('⚠️ Tencent Cloud credentials not found, using fallback AI');
+    }
+    
+    // 如果混元初始化失败或没有配置，使用 fallback
+    if (!this.useHunyuan) {
       const apiKey = process.env.KIMI_API_KEY || process.env.OPENAI_API_KEY || '';
       const baseURL = process.env.KIMI_BASE_URL || process.env.OPENAI_BASE_URL || 'https://api.openai.com/v1';
       
@@ -67,12 +80,15 @@ export class AIService {
 
       if (this.useHunyuan && this.hunyuanClient) {
         // 使用腾讯云混元
+        console.log('🤖 Using Tencent Hunyuan API...');
         const result = await this.callHunyuan(prompt);
         generatedContent = result.content;
         modelName = 'hunyuan-lite';
         tokens = result.tokens;
+        console.log('✅ Hunyuan API success, tokens used:', tokens);
       } else {
         // 使用 OpenAI / Kimi 兼容格式
+        console.log('🤖 Using fallback AI (OpenAI/Kimi)...');
         const model = process.env.KIMI_API_KEY ? 'moonshot-v1-8k' : (process.env.AI_MODEL || 'gpt-4');
         const completion = await this.openai.chat.completions.create({
           model,
@@ -115,15 +131,17 @@ export class AIService {
         budget,
       };
     } catch (error) {
-      console.error('AI生成失败:', error);
+      console.error('❌ AI生成失败:', error);
+      console.error('Error details:', error.message);
       
-      // 如果AI服务不可用，返回模板内容
+      // 返回错误信息，让用户知道发生了什么
       return {
-        success: true,
+        success: false,
         content: this.getTemplateDocument(category, budget, requirements),
         category,
         budget,
-        note: '使用模板生成（AI服务暂不可用）',
+        note: `AI服务暂时不可用: ${error.message}`,
+        error: error.message,
       };
     }
   }
@@ -144,15 +162,24 @@ export class AIService {
       ],
     };
 
+    console.log('📡 Calling Hunyuan API with params:', JSON.stringify(params, null, 2));
+
     try {
       const response = await this.hunyuanClient.ChatCompletions(params);
       
-      return {
-        content: response.Choices?.[0]?.Message?.Content || '',
-        tokens: response.Usage?.TotalTokens || 0,
-      };
+      console.log('📨 Hunyuan API response:', JSON.stringify(response, null, 2));
+      
+      const content = response.Choices?.[0]?.Message?.Content || '';
+      const tokens = response.Usage?.TotalTokens || 0;
+      
+      if (!content) {
+        throw new Error('Hunyuan returned empty content');
+      }
+      
+      return { content, tokens };
     } catch (error) {
-      console.error('Hunyuan API error:', error);
+      console.error('❌ Hunyuan API error:', error);
+      console.error('Error stack:', error.stack);
       throw error;
     }
   }
