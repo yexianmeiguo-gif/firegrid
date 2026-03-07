@@ -39,7 +39,8 @@
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.1",
     "axios": "^1.6.2",
-    "openai": "^4.24.1"
+    "openai": "^4.24.1",
+    "tencentcloud-sdk-nodejs": "^4.0.857"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",
