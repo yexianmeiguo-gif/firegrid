@@ -15,10 +15,17 @@ async function bootstrap() {
     }),
   );
 
-  // 启用CORS
+  // 启用CORS - 允许微信小程序访问
   app.enableCors({
-    origin: ['http://localhost:8080', 'http://localhost:3000'],
+    origin: [
+      'http://localhost:8080', 
+      'http://localhost:3000',
+      'https://servicewechat.com',  // 微信小程序
+      /\.tcloudbase\.com$/,  // 腾讯云域名
+    ],
     credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
   });
 
   // Swagger文档
@@ -31,8 +38,9 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/docs', app, document);
 
-  const port = process.env.PORT || 3000;
-  await app.listen(port);
+  // 监听端口 - CloudBase 云托管默认使用 10000
+  const port = process.env.PORT || 10000;
+  await app.listen(port, '0.0.0.0');  // 必须绑定 0.0.0.0
   console.log(`🚀 FireGrid Backend running on port ${port}`);
   console.log(`📚 API Docs: http://localhost:${port}/api/docs`);
 }
