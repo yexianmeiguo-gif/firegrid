@@ -9,7 +9,7 @@ COPY backend/package*.json ./
 COPY backend/prisma ./prisma/
 
 # 安装依赖
-RUN npm ci
+RUN npm install
 
 # 生成 Prisma 客户端
 RUN npx prisma generate
@@ -34,7 +34,7 @@ COPY backend/package*.json ./
 COPY backend/prisma ./prisma/
 
 # 只安装生产依赖
-RUN npm ci --only=production && npm cache clean --force
+RUN npm install --only=production && npm cache clean --force
 
 # 生成 Prisma 客户端（生产环境）
 RUN npx prisma generate
