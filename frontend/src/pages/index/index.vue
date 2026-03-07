@@ -95,7 +95,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { api } from '@/utils/request.js'
 
 // 功能入口
 const features = ref([
@@ -105,27 +106,61 @@ const features = ref([
   { name: '培训资讯', icon: '📚', path: '/pages/article/article', bgColor: '#26de81' },
 ])
 
-// 最新招标（模拟数据）
-const tenders = ref([
-  { id: 1, title: 'XX市消防救援支队消防车采购项目', region: '江苏省', amount: '2,580万', date: '2024-03-15' },
-  { id: 2, title: 'XX区应急管理局装备器材采购', region: '广东省', amount: '860万', date: '2024-03-14' },
-  { id: 3, title: 'XX县消防救援大队空气呼吸器采购', region: '浙江省', amount: '320万', date: '2024-03-13' },
-])
+// 数据列表
+const tenders = ref([])
+const equipments = ref([])
+const articles = ref([])
+const loading = ref(false)
 
-// 热门装备（模拟数据）
-const equipments = ref([
-  { id: 1, name: '水罐消防车', manufacturer: '中联重科', icon: '🚒' },
-  { id: 2, name: '空气呼吸器', manufacturer: '德尔格', icon: '😷' },
-  { id: 3, name: '液压破拆工具', manufacturer: 'LUKAS', icon: '🔧' },
-  { id: 4, name: '消防无人机', manufacturer: '大疆', icon: '🚁' },
-])
+// 获取首页数据
+const fetchData = async () => {
+  loading.value = true
+  try {
+    // 并行请求三个接口
+    const [tenderRes, equipRes, articleRes] = await Promise.all([
+      api.getTenderList({ limit: 3 }),
+      api.getEquipmentList({ limit: 4 }),
+      api.getArticleList({ limit: 3 })
+    ])
+    
+    // 处理招标数据
+    tenders.value = (tenderRes || []).map(item => ({
+      id: item.id,
+      title: item.title,
+      region: item.region || '全国',
+      amount: item.amount ? `${item.amount}万` : '待定',
+      date: item.publishDate ? item.publishDate.split('T')[0] : ''
+    }))
+    
+    // 处理装备数据
+    equipments.value = (equipRes || []).map((item, index) => ({
+      id: item.id,
+      name: item.name,
+      manufacturer: item.manufacturer,
+      icon: ['🚒', '😷', '🔧', '🚁', '🧯', '📡'][index % 6]
+    }))
+    
+    // 处理文章数据
+    articles.value = (articleRes || []).map((item, index) => ({
+      id: item.id,
+      title: item.title,
+      tag: item.category || '资讯',
+      views: item.viewCount > 1000 ? `${(item.viewCount/1000).toFixed(1)}k` : item.viewCount,
+      cover: ['🏢', '🔥', '💻', '🚒', '📋', '🎯'][index % 6]
+    }))
+    
+  } catch (error) {
+    console.error('获取数据失败:', error)
+    uni.showToast({ title: '数据加载失败', icon: 'none' })
+  } finally {
+    loading.value = false
+  }
+}
 
-// 专业资讯（模拟数据）
-const articles = ref([
-  { id: 1, title: '高层建筑火灾扑救战术要点解析', tag: '业务培训', views: '2.3k', cover: '🏢' },
-  { id: 2, title: '新型消防装备技术应用案例分享', tag: '装备知识', views: '1.8k', cover: '🔥' },
-  { id: 3, title: '2024年消防信息化建设项目汇总', tag: '信息化', views: '3.1k', cover: '💻' },
-])
+// 页面加载时获取数据
+onMounted(() => {
+  fetchData()
+})
 
 const goToPage = (path) => {
   uni.navigateTo({ url: path })
