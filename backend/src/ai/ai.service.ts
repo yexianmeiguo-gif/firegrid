@@ -7,11 +7,16 @@ export class AIService {
   private openai: OpenAI;
 
   constructor(private prisma: PrismaService) {
-    // 初始化OpenAI客户端
+    // 初始化AI客户端（支持 OpenAI / Kimi / 智谱 等兼容OpenAI格式的API）
+    const apiKey = process.env.KIMI_API_KEY || process.env.OPENAI_API_KEY || '';
+    const baseURL = process.env.KIMI_BASE_URL || process.env.OPENAI_BASE_URL || 'https://api.moonshot.cn/v1';
+    
     this.openai = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY || '',
-      baseURL: process.env.OPENAI_BASE_URL || 'https://api.openai.com/v1',
+      apiKey,
+      baseURL,
     });
+    
+    console.log('AI Service initialized with baseURL:', baseURL);
   }
 
   // AI生成招标文件
@@ -22,11 +27,14 @@ export class AIService {
     requirements: string,
   ) {
     const prompt = this.buildPrompt(category, budget, requirements);
+    
+    // 获取模型配置（优先使用Kimi，其次是环境变量，最后默认）
+    const model = process.env.KIMI_API_KEY ? 'moonshot-v1-8k' : (process.env.AI_MODEL || 'gpt-4');
 
     try {
       // 调用大语言模型
       const completion = await this.openai.chat.completions.create({
-        model: process.env.AI_MODEL || 'gpt-4',
+        model,
         messages: [
           {
             role: 'system',
@@ -63,7 +71,7 @@ export class AIService {
           budget,
           requirements,
           output: generatedContent,
-          model: process.env.AI_MODEL || 'gpt-4',
+          model: model,
           tokens: completion.usage?.total_tokens || 0,
         },
       });
