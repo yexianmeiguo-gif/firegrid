@@ -1,8 +1,11 @@
-# 使用 Node.js 18 LTS 作为基础镜像
-FROM node:18-alpine AS builder
+# 使用 Node.js 18 LTS 作为基础镜像（slim 版本，支持 Prisma）
+FROM node:18-slim AS builder
 
 # 设置工作目录
 WORKDIR /app
+
+# 安装 OpenSSL（Prisma 依赖）
+RUN apt-get update && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
 
 # 复制 backend 目录下的 package 文件（注意路径是 backend/）
 COPY backend/package*.json ./
@@ -21,13 +24,16 @@ COPY backend/. .
 RUN npm run build
 
 # 生产阶段
-FROM node:18-alpine AS production
+FROM node:18-slim AS production
 
 # 设置 NODE_ENV
 ENV NODE_ENV=production
 
 # 创建工作目录
 WORKDIR /app
+
+# 安装 OpenSSL（Prisma 依赖）
+RUN apt-get update && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
 
 # 复制 backend 目录下的 package 文件
 COPY backend/package*.json ./
