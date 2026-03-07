@@ -25,6 +25,7 @@ model User {
   // 关联
   firefighterProfile  FirefighterProfile?
   supplierProfile     SupplierProfile?
+  reviews             Review[]
   aiPromptLogs        AIPromptLog[]
   favorites           Favorite[]
   
@@ -118,6 +119,7 @@ model Review {
   equipment     Equipment @relation(fields: [equipmentId], references: [id], onDelete: Cascade)
   
   userId        String    @map("user_id")
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
   rating        Int       // 评分 1-5
   content       String?   @db.Text
   
