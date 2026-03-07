@@ -5,8 +5,31 @@ const prisma = new PrismaClient()
 async function main() {
   console.log('🌱 开始导入种子数据...')
 
-  // 1. 创建供应商
-  console.log('📦 创建供应商...')
+  // 0. 先清空旧数据（按依赖倒序删除）
+  console.log('🧹 清理旧数据...')
+  await prisma.tender.deleteMany().catch(() => {})
+  await prisma.article.deleteMany().catch(() => {})
+  await prisma.equipment.deleteMany().catch(() => {})
+  await prisma.supplierProfile.deleteMany().catch(() => {})
+  await prisma.firefighterProfile.deleteMany().catch(() => {})
+  await prisma.user.deleteMany().catch(() => {})
+  console.log('✅ 旧数据清理完成')
+
+  // 1. 先创建供应商用户
+  console.log('👤 创建供应商用户...')
+  const supplierUsers = await prisma.user.createMany({
+    data: [
+      { id: 'supplier-1', openId: 'wx_supplier_1', role: 'SUPPLIER', nickname: '中联重科', phone: '13800138001' },
+      { id: 'supplier-2', openId: 'wx_supplier_2', role: 'SUPPLIER', nickname: '德尔格', phone: '13800138002' },
+      { id: 'supplier-3', openId: 'wx_supplier_3', role: 'SUPPLIER', nickname: 'LUKAS', phone: '13800138003' },
+      { id: 'supplier-4', openId: 'wx_supplier_4', role: 'SUPPLIER', nickname: '大疆', phone: '13800138004' },
+    ],
+    skipDuplicates: true,
+  })
+  console.log(`✅ 创建了 ${supplierUsers.count} 个供应商用户`)
+
+  // 2. 创建供应商档案
+  console.log('📦 创建供应商档案...')
   const suppliers = await prisma.supplierProfile.createMany({
     data: [
       {
@@ -44,13 +67,14 @@ async function main() {
     ],
     skipDuplicates: true,
   })
-  console.log(`✅ 创建了 ${suppliers.count} 个供应商`)
+  console.log(`✅ 创建了 ${suppliers.count} 个供应商档案`)
 
-  // 2. 创建装备
+  // 3. 创建装备（依赖 supplier）
   console.log('🚒 创建装备数据...')
   const equipment = await prisma.equipment.createMany({
     data: [
       {
+        id: 'equip-1',
         name: '水罐消防车（8吨）',
         manufacturer: '中联重科',
         category: 'fire-truck',
@@ -67,6 +91,7 @@ async function main() {
         supplierId: 'supplier-1',
       },
       {
+        id: 'equip-2',
         name: '泡沫消防车（6吨）',
         manufacturer: '中联重科',
         category: 'fire-truck',
@@ -82,6 +107,7 @@ async function main() {
         supplierId: 'supplier-1',
       },
       {
+        id: 'equip-3',
         name: '正压式空气呼吸器 PSS 3600',
         manufacturer: '德尔格',
         category: 'personal-protection',
@@ -98,6 +124,7 @@ async function main() {
         supplierId: 'supplier-2',
       },
       {
+        id: 'equip-4',
         name: '灭火防护服（战斗服）',
         manufacturer: '德尔格',
         category: 'personal-protection',
@@ -113,6 +140,7 @@ async function main() {
         supplierId: 'supplier-2',
       },
       {
+        id: 'equip-5',
         name: '液压破拆工具组 SC 350',
         manufacturer: 'LUKAS',
         category: 'rescue-tools',
@@ -128,6 +156,7 @@ async function main() {
         supplierId: 'supplier-3',
       },
       {
+        id: 'equip-6',
         name: '消防无人机 Mavic 3T',
         manufacturer: '大疆',
         category: 'communication',
@@ -148,11 +177,12 @@ async function main() {
   })
   console.log(`✅ 创建了 ${equipment.count} 个装备`)
 
-  // 3. 创建招标信息
+  // 4. 创建招标信息（不依赖其他表）
   console.log('📋 创建招标信息...')
   const tenders = await prisma.tender.createMany({
     data: [
       {
+        id: 'tender-1',
         title: '江苏省消防救援总队消防车辆采购项目',
         tenderId: 'JS-2024-001',
         purchaser: '江苏省消防救援总队',
@@ -165,6 +195,7 @@ async function main() {
         content: '采购水罐消防车3辆、泡沫消防车2辆、云梯消防车1辆',
       },
       {
+        id: 'tender-2',
         title: '广州市消防救援支队个人防护装备采购',
         tenderId: 'GZ-2024-002',
         purchaser: '广州市消防救援支队',
@@ -177,6 +208,7 @@ async function main() {
         content: '采购空气呼吸器200套、灭火防护服500套',
       },
       {
+        id: 'tender-3',
         title: '杭州市消防救援支队抢险救援装备采购',
         tenderId: 'HZ-2024-003',
         purchaser: '杭州市消防救援支队',
@@ -189,6 +221,7 @@ async function main() {
         content: '采购液压破拆工具组10套、起重气垫20套',
       },
       {
+        id: 'tender-4',
         title: '四川省消防救援总队通信装备采购',
         tenderId: 'SC-2024-004',
         purchaser: '四川省消防救援总队',
@@ -201,6 +234,7 @@ async function main() {
         content: '采购消防无人机20架、对讲机500台',
       },
       {
+        id: 'tender-5',
         title: '北京市消防救援局灭火器材采购',
         tenderId: 'BJ-2024-005',
         purchaser: '北京市消防救援局',
@@ -219,11 +253,12 @@ async function main() {
   })
   console.log(`✅ 创建了 ${tenders.count} 条招标信息`)
 
-  // 4. 创建资讯文章
+  // 5. 创建资讯文章（不依赖其他表）
   console.log('📰 创建资讯文章...')
   const articles = await prisma.article.createMany({
     data: [
       {
+        id: 'article-1',
         title: '高层建筑火灾扑救战术要点解析',
         summary: '本文详细分析了高层建筑火灾的特点，总结了扑救过程中的战术要点和注意事项',
         content: '详细内容...',
@@ -234,6 +269,7 @@ async function main() {
         likeCount: 156,
       },
       {
+        id: 'article-2',
         title: '新型压缩空气泡沫消防车技术特点',
         summary: '介绍新一代压缩空气泡沫消防车的技术原理、性能参数和实战应用效果',
         content: '详细内容...',
@@ -244,6 +280,7 @@ async function main() {
         likeCount: 98,
       },
       {
+        id: 'article-3',
         title: '2024年消防信息化建设优秀案例',
         summary: '整理了全国各地消防信息化建设的优秀案例，包括智慧消防、数字化指挥等',
         content: '详细内容...',
