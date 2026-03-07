@@ -10,20 +10,38 @@ Page({
       { id: 2, name: '空气呼吸器', manufacturer: '德尔格', icon: '😷' },
       { id: 3, name: '液压破拆工具', manufacturer: 'LUKAS', icon: '🔧' },
       { id: 4, name: '消防无人机', manufacturer: '大疆', icon: '🚁' },
-    ]
+    ],
+    stats: {
+      equipments: 6,
+      tenders: 5,
+      suppliers: 4
+    }
   },
 
   onLoad() {
     this.fetchData()
+    this.loadStats()
   },
 
   onPullDownRefresh() {
     this.fetchData()
-    setTimeout(() => {
-      wx.stopPullDownRefresh()
-    }, 1000)
+    this.loadStats()
   },
 
+  // 加载统计数据
+  loadStats() {
+    // 这里可以调用后端API获取真实统计数据
+    // 暂时使用模拟数据
+    this.setData({
+      stats: {
+        equipments: 6,
+        tenders: 5,
+        suppliers: 4
+      }
+    })
+  },
+
+  // 获取首页数据
   fetchData() {
     this.setData({ loading: true })
     
@@ -44,11 +62,15 @@ Page({
           const responseData = Array.isArray(res.data) ? res.data : (res.data.data || [])
           
           if (responseData.length > 0) {
-            const tenders = responseData.map(item => ({
+            const tenders = responseData.map((item, index) => ({
               id: item.id,
               title: item.title,
               region: item.region || '全国',
-              amount: item.amount ? `¥${item.amount}万` : '待定'
+              amount: item.amount ? `¥${item.amount}万` : '待定',
+              date: item.publishDate ? item.publishDate.split('T')[0] : '',
+              status: item.status || 'OPEN',
+              // 添加入场动画延迟
+              animationDelay: index * 0.1
             }))
             that.setData({ tenders })
             console.log('设置 tenders 成功:', tenders.length, '条数据')
@@ -67,6 +89,7 @@ Page({
       },
       complete: () => {
         that.setData({ loading: false })
+        wx.stopPullDownRefresh()
       }
     })
   },
@@ -75,13 +98,14 @@ Page({
   setMockData() {
     this.setData({
       tenders: [
-        { id: '1', title: '江苏省消防救援总队消防车采购项目', region: '江苏省南京市', amount: '¥2580万' },
-        { id: '2', title: '广州市消防救援支队个人防护装备采购', region: '广东省广州市', amount: '¥860万' },
-        { id: '3', title: '杭州市消防救援支队破拆工具采购项目', region: '浙江省杭州市', amount: '¥320万' },
+        { id: '1', title: '江苏省消防救援总队消防车采购项目', region: '江苏省南京市', amount: '¥2580万', date: '2024-03-15', status: 'OPEN', animationDelay: 0 },
+        { id: '2', title: '广州市消防救援支队个人防护装备采购', region: '广东省广州市', amount: '¥860万', date: '2024-03-14', status: 'OPEN', animationDelay: 0.1 },
+        { id: '3', title: '杭州市消防救援支队破拆工具采购项目', region: '浙江省杭州市', amount: '¥520万', date: '2024-03-13', status: 'AWARDED', animationDelay: 0.2 },
       ]
     })
   },
 
+  // 页面跳转
   goToPage(e) {
     const url = e.currentTarget.dataset.url
     wx.switchTab({ url })
