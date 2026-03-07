@@ -1,0 +1,71 @@
+<!--pages/equipment/equipment.wxml-->
+<view class="container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <input 
+      type="text" 
+      placeholder="搜索装备名称、制造商..." 
+      value="{{keyword}}"
+      bindinput="onSearchInput"
+      bindconfirm="doSearch"
+    />
+    <button class="search-btn" bindtap="doSearch">搜索</button>
+  </view>
+
+  <!-- 分类标签 -->
+  <scroll-view scroll-x class="category-tabs">
+    <view 
+      class="tab-item {{currentCategory === item.id ? 'active' : ''}}"
+      wx:for="{{categories}}"
+      wx:key="id"
+      data-category="{{item.id}}"
+      bindtap="switchCategory"
+    >
+      {{item.name}}
+    </view>
+  </scroll-view>
+
+  <!-- 装备列表 -->
+  <view class="equipment-list">
+    <view 
+      class="equipment-card"
+      wx:for="{{equipments}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="goDetail"
+    >
+      <view class="equipment-header">
+        <view class="equipment-icon">{{item.category === 'fire-truck' ? '🚒' : item.category === 'personal-protection' ? '😷' : item.category === 'rescue-tools' ? '🔧' : item.category === 'communication' ? '📡' : '🧯'}}</view>
+        <view class="equipment-info">
+          <text class="equipment-name">{{item.name}}</text>
+          <text class="equipment-manufacturer">{{item.manufacturer}}</text>
+        </view>
+      </view>
+      
+      <view class="equipment-params" wx:if="{{item.parameters}}">
+        <view class="param-item" wx:for="{{item.parameters}}" wx:for-item="param" wx:for-index="key" wx:key="key">
+          <text class="param-label">{{key}}:</text>
+          <text class="param-value">{{param}}</text>
+        </view>
+      </view>
+      
+      <view class="equipment-footer">
+        <text class="equipment-category">{{item.category}}</text>
+        <text class="equipment-reviews">{{item._count?.reviews || 0}} 条评价</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view class="loading-state" wx:if="{{loading}}">
+    加载中...
+  </view>
+  
+  <view class="no-more" wx:if="{{!hasMore && equipments.length > 0}}">
+    没有更多了
+  </view>
+  
+  <view class="empty-state" wx:if="{{!loading && equipments.length === 0}}">
+    暂无装备数据
+  </view>
+</view>

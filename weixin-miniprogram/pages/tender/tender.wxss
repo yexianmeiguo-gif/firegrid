@@ -1,0 +1,130 @@
+/* pages/tender/tender.wxss */
+.container {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+/* 筛选栏 */
+.filter-bar {
+  display: flex;
+  background: #fff;
+  padding: 20rpx;
+  gap: 16rpx;
+  overflow-x: auto;
+}
+
+.filter-item {
+  padding: 16rpx 32rpx;
+  font-size: 28rpx;
+  color: #666;
+  background: #f5f5f5;
+  border-radius: 32rpx;
+  white-space: nowrap;
+}
+
+.filter-item.active {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+  color: #fff;
+}
+
+/* 招标列表 */
+.tender-list {
+  padding: 20rpx;
+}
+
+.tender-card {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 20rpx;
+  position: relative;
+}
+
+/* 状态标签 */
+.tender-status-badge {
+  position: absolute;
+  top: 24rpx;
+  right: 24rpx;
+  padding: 8rpx 20rpx;
+  border-radius: 8rpx;
+  font-size: 22rpx;
+}
+
+.tender-status-badge.OPEN {
+  background: rgba(38, 222, 129, 0.1);
+  color: #26de81;
+}
+
+.tender-status-badge.AWARDED {
+  background: rgba(238, 90, 36, 0.1);
+  color: #ee5a24;
+}
+
+.tender-status-badge.CLOSED {
+  background: rgba(153, 153, 153, 0.1);
+  color: #999;
+}
+
+/* 标题 */
+.tender-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  line-height: 1.4;
+  margin-bottom: 20rpx;
+  padding-right: 120rpx;
+}
+
+/* 信息 */
+.tender-info {
+  margin-bottom: 16rpx;
+}
+
+.info-row {
+  display: flex;
+  margin-bottom: 12rpx;
+}
+
+.info-label {
+  font-size: 26rpx;
+  color: #666;
+  width: 140rpx;
+}
+
+.info-value {
+  font-size: 26rpx;
+  color: #333;
+  flex: 1;
+}
+
+.info-value.amount {
+  color: #ee5a24;
+  font-weight: bold;
+}
+
+/* 标签 */
+.tender-tags {
+  display: flex;
+  gap: 12rpx;
+  margin-top: 16rpx;
+  padding-top: 16rpx;
+  border-top: 2rpx solid #f0f0f0;
+}
+
+.tag {
+  font-size: 22rpx;
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+  padding: 6rpx 16rpx;
+  border-radius: 8rpx;
+}
+
+/* 状态 */
+.loading-state,
+.no-more,
+.empty-state {
+  text-align: center;
+  padding: 40rpx;
+  color: #999;
+  font-size: 28rpx;
+}

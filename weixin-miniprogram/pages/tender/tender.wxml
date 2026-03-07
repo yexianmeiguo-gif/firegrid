@@ -1,0 +1,71 @@
+<!--pages/tender/tender.wxml-->
+<view class="container">
+  <!-- 筛选标签 -->
+  <view class="filter-bar">
+    <view 
+      class="filter-item {{currentFilter === item.id ? 'active' : ''}}"
+      wx:for="{{filters}}"
+      wx:key="id"
+      data-filter="{{item.id}}"
+      bindtap="switchFilter"
+    >
+      {{item.name}}
+    </view>
+  </view>
+
+  <!-- 招标列表 -->
+  <view class="tender-list">
+    <view 
+      class="tender-card {{item.status}}"
+      wx:for="{{tenders}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="goDetail"
+    >
+      <view class="tender-status-badge {{item.status}}">
+        {{item.status === 'OPEN' ? '招标中' : item.status === 'AWARDED' ? '已中标' : '已截止'}}
+      </view>
+      
+      <view class="tender-title">{{item.title}}</view>
+      
+      <view class="tender-info">
+        <view class="info-row">
+          <text class="info-label">采购单位：</text>
+          <text class="info-value">{{item.purchaser}}</text>
+        </view>
+        
+        <view class="info-row">
+          <text class="info-label">预算金额：</text>
+          <text class="info-value amount">{{item.amount ? '¥' + item.amount + '万' : '待定'}}</text>
+        </view>
+        
+        <view class="info-row">
+          <text class="info-label">所在地区：</text>
+          <text class="info-value">{{item.region || '全国'}}</text>
+        </view>
+        
+        <view class="info-row" wx:if="{{item.deadline}}">
+          <text class="info-label">截止时间：</text>
+          <text class="info-value">{{item.deadline}}</text>
+        </view>
+      </view>
+      
+      <view class="tender-tags" wx:if="{{item.category}}">
+        <text class="tag">{{item.category}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view class="loading-state" wx:if="{{loading}}">
+    加载中...
+  </view>
+  
+  <view class="no-more" wx:if="{{!hasMore && tenders.length > 0}}">
+    没有更多了
+  </view>
+  
+  <view class="empty-state" wx:if="{{!loading && tenders.length === 0}}">
+    暂无招标信息
+  </view>
+</view>

@@ -1,0 +1,12 @@
+<!--pages/article/article.wxml-->
+<view class="container">
+  <view class="header">
+    <text class="title">📚 专业资讯</text>
+    <text class="subtitle">消防业务知识与案例</text>
+  </view>
+  
+  <view class="card">
+    <text class="placeholder">资讯列表功能开发中...</text>
+    <text class="note">后端API: {{apiUrl}}/articles</text>
+  </view>
+</view>

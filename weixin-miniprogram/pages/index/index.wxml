@@ -1,0 +1,78 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <!-- 顶部 -->
+  <view class="header">
+    <text class="logo">🔥 FireGrid</text>
+    <text class="subtitle">消防装备信息化服务平台</text>
+  </view>
+
+  <!-- 功能入口 -->
+  <view class="feature-grid">
+    <view class="feature-item" bindtap="goToPage" data-url="/pages/equipment/equipment">
+      <view class="feature-icon" style="background: #ff6b6b;">🚒</view>
+      <text>装备库</text>
+    </view>
+    <view class="feature-item" bindtap="goToPage" data-url="/pages/tender/tender">
+      <view class="feature-icon" style="background: #4ecdc4;">📋</view>
+      <text>招标</text>
+    </view>
+    <view class="feature-item" bindtap="goToPage" data-url="/pages/ai/ai">
+      <view class="feature-icon" style="background: #a55eea;">🤖</view>
+      <text>AI工具</text>
+    </view>
+    <view class="feature-item" bindtap="goToPage" data-url="/pages/article/article">
+      <view class="feature-icon" style="background: #26de81;">📚</view>
+      <text>资讯</text>
+    </view>
+  </view>
+
+  <!-- AI卡片 -->
+  <view class="ai-card" bindtap="goToPage" data-url="/pages/ai/ai">
+    <view class="flex-between">
+      <view>
+        <text class="ai-title">🤖 AI招标文件生成器</text>
+        <text class="ai-desc">输入需求，AI自动生成专业招标文件</text>
+      </view>
+      <text class="ai-btn">立即使用 ></text>
+    </view>
+  </view>
+
+  <!-- 最新招标 -->
+  <view class="section">
+    <view class="section-header flex-between">
+      <text class="section-title">📋 最新招标</text>
+      <text class="more" bindtap="goToPage" data-url="/pages/tender/tender">更多 ></text>
+    </view>
+    
+    <view wx:if="{{loading}}" class="loading">加载中...</view>
+    
+    <!-- 调试信息：显示 tenders 数组长度 -->
+    <view wx:if="{{!loading && tenders.length === 0}}" class="loading">
+      暂无数据 (tenders.length: {{tenders.length}})
+    </view>
+    
+    <view wx:for="{{tenders}}" wx:key="id" class="tender-item">
+      <view class="tender-title">{{item.title}}</view>
+      <view class="tender-info flex-between">
+        <text class="tender-region">📍 {{item.region}}</text>
+        <text class="tender-amount">💰 {{item.amount}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 热门装备 -->
+  <view class="section">
+    <view class="section-header flex-between">
+      <text class="section-title">🚒 热门装备</text>
+      <text class="more" bindtap="goToPage" data-url="/pages/equipment/equipment">更多 ></text>
+    </view>
+    
+    <view class="equipment-grid">
+      <view wx:for="{{equipments}}" wx:key="id" class="equipment-item">
+        <view class="equipment-icon">{{item.icon}}</view>
+        <text class="equipment-name">{{item.name}}</text>
+        <text class="equipment-brand">{{item.manufacturer}}</text>
+      </view>
+    </view>
+  </view>
+</view>
