@@ -27,9 +27,9 @@ export class AIService {
         },
         region: process.env.TENCENTCLOUD_REGION || 'ap-guangzhou',
         profile: {
-          signMethod: 'TC3-HMAC-SHA256',
+          signMethod: 'TC3-HMAC-SHA256' as 'TC3-HMAC-SHA256',
           httpProfile: {
-            reqMethod: 'POST',
+            reqMethod: 'POST' as 'POST',
             reqTimeout: 30,
           },
         },
