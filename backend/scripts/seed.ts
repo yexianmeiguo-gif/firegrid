@@ -10,6 +10,9 @@ async function main() {
   await prisma.tender.deleteMany().catch(() => {})
   await prisma.article.deleteMany().catch(() => {})
   await prisma.equipment.deleteMany().catch(() => {})
+  await prisma.review.deleteMany().catch(() => {})
+  await prisma.favorite.deleteMany().catch(() => {})
+  await prisma.aIPromptLog.deleteMany().catch(() => {})
   await prisma.supplierProfile.deleteMany().catch(() => {})
   await prisma.firefighterProfile.deleteMany().catch(() => {})
   await prisma.user.deleteMany().catch(() => {})
@@ -17,59 +20,71 @@ async function main() {
 
   // 1. 先创建供应商用户
   console.log('👤 创建供应商用户...')
-  const supplierUsers = await prisma.user.createMany({
+  await prisma.user.createMany({
     data: [
-      { id: 'supplier-1', openId: 'wx_supplier_1', role: 'SUPPLIER', nickname: '中联重科', phone: '13800138001' },
-      { id: 'supplier-2', openId: 'wx_supplier_2', role: 'SUPPLIER', nickname: '德尔格', phone: '13800138002' },
-      { id: 'supplier-3', openId: 'wx_supplier_3', role: 'SUPPLIER', nickname: 'LUKAS', phone: '13800138003' },
-      { id: 'supplier-4', openId: 'wx_supplier_4', role: 'SUPPLIER', nickname: '大疆', phone: '13800138004' },
+      { id: 'user-s1', openId: 'wx_supplier_1', role: 'SUPPLIER', nickname: '中联重科', phone: '13800138001' },
+      { id: 'user-s2', openId: 'wx_supplier_2', role: 'SUPPLIER', nickname: '德尔格', phone: '13800138002' },
+      { id: 'user-s3', openId: 'wx_supplier_3', role: 'SUPPLIER', nickname: 'LUKAS', phone: '13800138003' },
+      { id: 'user-s4', openId: 'wx_supplier_4', role: 'SUPPLIER', nickname: '大疆', phone: '13800138004' },
     ],
-    skipDuplicates: true,
   })
-  console.log(`✅ 创建了 ${supplierUsers.count} 个供应商用户`)
+  console.log('✅ 创建了 4 个供应商用户')
 
-  // 2. 创建供应商档案
+  // 2. 创建供应商档案，并获取他们的真实 ID
   console.log('📦 创建供应商档案...')
-  const suppliers = await prisma.supplierProfile.createMany({
-    data: [
-      {
-        userId: 'supplier-1',
-        companyName: '中联重科消防装备有限公司',
-        mainCategories: ['fire-truck', 'fire-extinguishing'],
-        contactPhone: '400-XXX-XXXX',
-        address: '湖南省长沙市',
-        subscription: 'PRO',
-      },
-      {
-        userId: 'supplier-2',
-        companyName: '德尔格安全设备（中国）有限公司',
-        mainCategories: ['personal-protection'],
-        contactPhone: '400-XXX-XXXX',
-        address: '上海市',
-        subscription: 'ENTERPRISE',
-      },
-      {
-        userId: 'supplier-3',
-        companyName: 'LUKAS救援装备中国代表处',
-        mainCategories: ['rescue-tools'],
-        contactPhone: '400-XXX-XXXX',
-        address: '北京市',
-        subscription: 'PRO',
-      },
-      {
-        userId: 'supplier-4',
-        companyName: '大疆行业应用',
-        mainCategories: ['communication'],
-        contactPhone: '400-XXX-XXXX',
-        address: '广东省深圳市',
-        subscription: 'FREE',
-      },
-    ],
-    skipDuplicates: true,
+  
+  // 分别创建，获取真实 ID
+  const supplier1 = await prisma.supplierProfile.create({
+    data: {
+      userId: 'user-s1',
+      companyName: '中联重科消防装备有限公司',
+      mainCategories: ['fire-truck', 'fire-extinguishing'],
+      contactPhone: '400-XXX-XXXX',
+      address: '湖南省长沙市',
+      subscription: 'PRO',
+    },
   })
-  console.log(`✅ 创建了 ${suppliers.count} 个供应商档案`)
+  
+  const supplier2 = await prisma.supplierProfile.create({
+    data: {
+      userId: 'user-s2',
+      companyName: '德尔格安全设备（中国）有限公司',
+      mainCategories: ['personal-protection'],
+      contactPhone: '400-XXX-XXXX',
+      address: '上海市',
+      subscription: 'ENTERPRISE',
+    },
+  })
+  
+  const supplier3 = await prisma.supplierProfile.create({
+    data: {
+      userId: 'user-s3',
+      companyName: 'LUKAS救援装备中国代表处',
+      mainCategories: ['rescue-tools'],
+      contactPhone: '400-XXX-XXXX',
+      address: '北京市',
+      subscription: 'PRO',
+    },
+  })
+  
+  const supplier4 = await prisma.supplierProfile.create({
+    data: {
+      userId: 'user-s4',
+      companyName: '大疆行业应用',
+      mainCategories: ['communication'],
+      contactPhone: '400-XXX-XXXX',
+      address: '广东省深圳市',
+      subscription: 'FREE',
+    },
+  })
+  
+  console.log('✅ 创建了 4 个供应商档案')
+  console.log(`   - 中联重科 ID: ${supplier1.id}`)
+  console.log(`   - 德尔格 ID: ${supplier2.id}`)
+  console.log(`   - LUKAS ID: ${supplier3.id}`)
+  console.log(`   - 大疆 ID: ${supplier4.id}`)
 
-  // 3. 创建装备（依赖 supplier）
+  // 3. 创建装备（使用真实的 supplier ID）
   console.log('🚒 创建装备数据...')
   const equipment = await prisma.equipment.createMany({
     data: [
@@ -88,7 +103,7 @@ async function main() {
           dimensions: '8500×2500×3400mm',
         },
         description: '大型水罐消防车，适用于城市建筑火灾扑救',
-        supplierId: 'supplier-1',
+        supplierId: supplier1.id,  // 使用真实的 ID
       },
       {
         id: 'equip-2',
@@ -104,7 +119,7 @@ async function main() {
           range: '60m',
         },
         description: '泡沫消防车，适用于油类火灾扑救',
-        supplierId: 'supplier-1',
+        supplierId: supplier1.id,
       },
       {
         id: 'equip-3',
@@ -121,7 +136,7 @@ async function main() {
           certification: 'CCC, CE',
         },
         description: '专业级空气呼吸器，配备智能压力监测',
-        supplierId: 'supplier-2',
+        supplierId: supplier2.id,
       },
       {
         id: 'equip-4',
@@ -137,7 +152,7 @@ async function main() {
           heatResistance: '260°C',
         },
         description: '四层结构灭火防护服，符合国际标准',
-        supplierId: 'supplier-2',
+        supplierId: supplier2.id,
       },
       {
         id: 'equip-5',
@@ -153,7 +168,7 @@ async function main() {
           workingPressure: '63MPa',
         },
         description: '德国进口液压破拆工具，适用于车辆事故救援',
-        supplierId: 'supplier-3',
+        supplierId: supplier3.id,
       },
       {
         id: 'equip-6',
@@ -170,16 +185,15 @@ async function main() {
           windResistance: '12m/s',
         },
         description: '行业级消防无人机，配备热成像相机',
-        supplierId: 'supplier-4',
+        supplierId: supplier4.id,
       },
     ],
-    skipDuplicates: true,
   })
   console.log(`✅ 创建了 ${equipment.count} 个装备`)
 
-  // 4. 创建招标信息（不依赖其他表）
+  // 4. 创建招标信息
   console.log('📋 创建招标信息...')
-  const tenders = await prisma.tender.createMany({
+  await prisma.tender.createMany({
     data: [
       {
         id: 'tender-1',
@@ -249,13 +263,12 @@ async function main() {
         winAmount: 298.50,
       },
     ],
-    skipDuplicates: true,
   })
-  console.log(`✅ 创建了 ${tenders.count} 条招标信息`)
+  console.log('✅ 创建了 5 条招标信息')
 
-  // 5. 创建资讯文章（不依赖其他表）
+  // 5. 创建资讯文章
   console.log('📰 创建资讯文章...')
-  const articles = await prisma.article.createMany({
+  await prisma.article.createMany({
     data: [
       {
         id: 'article-1',
@@ -291,9 +304,8 @@ async function main() {
         likeCount: 234,
       },
     ],
-    skipDuplicates: true,
   })
-  console.log(`✅ 创建了 ${articles.count} 篇文章`)
+  console.log('✅ 创建了 3 篇文章')
 
   console.log('🎉 种子数据导入完成！')
 }
