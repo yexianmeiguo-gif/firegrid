@@ -46,4 +46,4 @@ COPY --from=builder /app/dist ./dist
 EXPOSE 10000
 
 # 启动命令
-CMD ["node", "dist/main.js"]
+CMD ["node", "dist/src/main.js"]
