@@ -6,6 +6,7 @@ import { EquipmentModule } from './equipment/equipment.module';
 import { TendersModule } from './tenders/tenders.module';
 import { AIModule } from './ai/ai.module';
 import { ArticlesModule } from './articles/articles.module';
+import { MatchmakingModule } from './matchmaking/matchmaking.module';
 import { PrismaModule } from './common/prisma/prisma.module';
 
 @Module({
@@ -20,6 +21,7 @@ import { PrismaModule } from './common/prisma/prisma.module';
     TendersModule,
     AIModule,
     ArticlesModule,
+    MatchmakingModule,
   ],
 })
 export class AppModule {}

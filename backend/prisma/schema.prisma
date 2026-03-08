@@ -251,4 +251,163 @@ enum ContentType {
   ARTICLE // 文章
   VIDEO   // 视频
   CASE    // 案例
+}// 供需撮合中心数据模型
+// 添加到 Prisma Schema
+
+// 采购需求表（消防队/政府发布）
+model ProcurementDemand {
+  id            String    @id @default(uuid())
+  title         String    // 需求标题
+  description   String?   @db.Text // 详细描述
+  
+  // 发布方信息
+  publisherId   String    @map("publisher_id")
+  publisherType UserRole  @map("publisher_type") // FIREFIGHTER 或 ADMIN
+  department    String?   // 部门/单位名称
+  region        String    // 所在地区（省市区）
+  contactName   String?   @map("contact_name")
+  contactPhone  String?   @map("contact_phone")
+  
+  // 需求详情
+  category      String    // 装备类别
+  subCategory   String?   @map("sub_category")
+  budgetMin     Decimal?  @map("budget_min") @db.Decimal(15, 2) // 预算下限
+  budgetMax     Decimal?  @map("budget_max") @db.Decimal(15, 2) // 预算上限
+  quantity      Int?      // 采购数量
+  requirements  Json?     // 技术参数要求（JSON格式）
+  
+  // 时间要求
+  deadline      DateTime? // 期望交付日期
+  validUntil    DateTime  @map("valid_until") // 需求有效期
+  
+  // 状态
+  status        DemandStatus @default(OPEN) // OPEN/CLOSED/MATCHED/COMPLETED
+  
+  // 匹配记录
+  matches       DemandMatch[]
+  
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+  
+  @@map("procurement_demands")
+  @@index([status, category])
+  @@index([region])
+  @@index([validUntil])
+}
+
+// 供应发布表（厂商/贸易商发布）
+model SupplyOffer {
+  id            String    @id @default(uuid())
+  title         String    // 供应标题
+  description   String?   @db.Text // 详细描述
+  
+  // 发布方信息
+  supplierId    String    @map("supplier_id")
+  companyName   String    @map("company_name")
+  region        String    // 所在地区
+  contactName   String?   @map("contact_name")
+  contactPhone  String?   @map("contact_phone")
+  
+  // 产品信息
+  category      String    // 装备类别
+  subCategory   String?   @map("sub_category")
+  brand         String?   // 品牌
+  model         String?   // 型号
+  price         Decimal?  @db.Decimal(15, 2) // 单价
+  quantity      Int?      // 可供应数量
+  specifications Json?    // 技术参数
+  
+  // 资质认证
+  certificates  String[]  // 认证证书（3C、消防认证等）
+  
+  // 库存状态
+  stockStatus   StockStatus @map("stock_status") @default(IN_STOCK) // IN_STOCK/PRE_ORDER/CUSTOM
+  deliveryDays  Int?        @map("delivery_days") // 交货周期（天）
+  
+  // 状态
+  status        OfferStatus @default(ACTIVE) // ACTIVE/SOLD_OUT/EXPIRED
+  validUntil    DateTime    @map("valid_until")
+  
+  // 匹配记录
+  matches       DemandMatch[]
+  
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+  
+  @@map("supply_offers")
+  @@index([status, category])
+  @@index([region])
+  @@index([validUntil])
+}
+
+// 供需匹配记录表
+model DemandMatch {
+  id              String      @id @default(uuid())
+  
+  demandId        String      @map("demand_id")
+  demand          ProcurementDemand @relation(fields: [demandId], references: [id], onDelete: Cascade)
+  
+  offerId         String      @map("offer_id")
+  offer           SupplyOffer @relation(fields: [offerId], references: [id], onDelete: Cascade)
+  
+  // 匹配分数（算法计算）
+  matchScore      Float       @map("match_score") // 0-100
+  matchReasons    Json?       @map("match_reasons") // 匹配原因（如：["地域匹配", "预算匹配"]）
+  
+  // 双方意向
+  demandInterest  InterestStatus @map("demand_interest") @default(PENDING) // PENDING/INTERESTED/NOT_INTERESTED
+  offerInterest   InterestStatus @map("offer_interest") @default(PENDING)
+  
+  // 撮合状态
+  status          MatchStatus @default(PENDING) // PENDING/CONTACTED/NEGOTIATING/COMPLETED/CANCELLED
+  
+  // 沟通记录
+  contactHistory  Json?       @map("contact_history") // 联系记录
+  
+  createdAt       DateTime    @default(now()) @map("created_at")
+  updatedAt       DateTime    @updatedAt @map("updated_at")
+  
+  @@unique([demandId, offerId])
+  @@map("demand_matches")
+  @@index([status])
+  @@index([matchScore])
+}
+
+// 枚举定义
+enum DemandStatus {
+  OPEN      // 开放中
+  MATCHED   // 已匹配
+  NEGOTIATING // 洽谈中
+  COMPLETED // 已完成
+  CANCELLED // 已取消
+  EXPIRED   // 已过期
+}
+
+enum OfferStatus {
+  ACTIVE    // 在售
+  SOLD_OUT  // 售罄
+  EXPIRED   // 已过期
+  WITHDRAWN // 已下架
+}
+
+enum StockStatus {
+  IN_STOCK    // 现货
+  PRE_ORDER   // 预订
+  CUSTOM      // 定制
+  LIMITED     // 限量
+}
+
+enum InterestStatus {
+  PENDING          // 待反馈
+  INTERESTED       // 有意向
+  NOT_INTERESTED   // 无意向
+  CONTACTED        // 已联系
+}
+
+enum MatchStatus {
+  PENDING      // 待撮合
+  CONTACTED    // 已联系
+  NEGOTIATING  // 洽谈中
+  COMPLETED    // 已完成
+  CANCELLED    // 已取消
 }

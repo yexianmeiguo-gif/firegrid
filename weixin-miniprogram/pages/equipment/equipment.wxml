@@ -51,7 +51,7 @@
       
       <view class="equipment-footer">
         <text class="equipment-category">{{item.category}}</text>
-        <text class="equipment-reviews">{{item._count?.reviews || 0}} 条评价</text>
+        <text class="equipment-reviews">{{(item._count && item._count.reviews) || 0}} 条评价</text>
       </view>
     </view>
   </view>
