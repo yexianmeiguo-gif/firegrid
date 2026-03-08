@@ -1,0 +1,50 @@
+name: Deploy to Tencent CloudBase
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install dependencies
+      run: |
+        cd backend
+        npm install
+        
+    - name: Generate Prisma Client
+      run: |
+        cd backend
+        npx prisma generate
+        
+    - name: Build TypeScript
+      run: |
+        cd backend
+        npm run build
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        JWT_SECRET: ${{ secrets.JWT_SECRET }}
+        TENCENTCLOUD_SECRET_ID: ${{ secrets.TENCENTCLOUD_SECRET_ID }}
+        TENCENTCLOUD_SECRET_KEY: ${{ secrets.TENCENTCLOUD_SECRET_KEY }}
+        
+    - name: Run database migrations
+      run: |
+        cd backend
+        npx prisma migrate deploy
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        
+    - name: Deploy to CloudBase
+      run: |
+        echo "Build completed. Please manually deploy to CloudBase."
+        echo "Next: Configure CloudBase CLI for automatic deployment"
