@@ -82,7 +82,7 @@
         </view>
         
         <view class="card-footer">
-          <text class="match-count">{{item.matches?.length || 0}} 个匹配</text>
+          <text class="match-count">{{(item.matches && item.matches.length) || 0}} 个匹配</text>
           <button class="view-btn" data-id="{{item.id}}" bindtap="viewDemandDetail">查看匹配</button>
         </view>
       </view>
@@ -158,7 +158,7 @@
           
           <view wx:for="{{item.matches}}" wx:for-item="match" wx:key="id" class="match-item">
             <view class="match-info">
-              <text class="match-name">{{match.offer?.title || match.demand?.title}}</text>
+              <text class="match-name">{{(match.offer && match.offer.title) || (match.demand && match.demand.title)}}</text>
               <view class="match-tags">
                 <text wx:for="{{match.matchReasons}}" wx:for-item="reason" wx:key="*this" class="match-tag">{{reason}}</text>
               </view>

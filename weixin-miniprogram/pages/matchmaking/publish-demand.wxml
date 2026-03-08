@@ -31,7 +31,7 @@
           bindinput="onInput"
           maxlength="500"
         />
-        <text class="char-count">{{form.description?.length || 0}}/500</text>
+        <text class="char-count">{{(form.description && form.description.length) || 0}}/500</text>
       </view>
     </view>
 
