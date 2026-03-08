@@ -74,6 +74,7 @@ export class MatchmakingController {
       ...data,
       publisherId,
       publisherType,
+      deadline: data.deadline ? new Date(data.deadline) : undefined,
     });
   }
 

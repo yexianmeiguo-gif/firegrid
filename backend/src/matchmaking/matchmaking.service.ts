@@ -7,11 +7,13 @@ import {
   DemandStatus,
   OfferStatus,
   MatchStatus,
-  InterestStatus
+  InterestStatus,
+  UserRole,
+  StockStatus
 } from '@prisma/client';
 
 // 匹配结果接口
-interface MatchResult {
+export interface MatchResult {
   offer: SupplyOffer;
   score: number;
   reasons: string[];
@@ -48,6 +50,7 @@ export class MatchmakingService {
     const demand = await this.prisma.procurementDemand.create({
       data: {
         ...data,
+        publisherType: data.publisherType as UserRole,
         validUntil,
         status: DemandStatus.OPEN,
       },
@@ -143,6 +146,7 @@ export class MatchmakingService {
     const offer = await this.prisma.supplyOffer.create({
       data: {
         ...data,
+        stockStatus: data.stockStatus as StockStatus,
         validUntil,
         status: OfferStatus.ACTIVE,
       },
