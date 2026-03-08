@@ -111,18 +111,23 @@ export class AIService {
         tokens = completion.usage?.total_tokens || 0;
       }
 
-      // 保存生成记录
-      await this.prisma.aIPromptLog.create({
-        data: {
-          userId,
-          category,
-          budget,
-          requirements,
-          output: generatedContent,
-          model: modelName,
-          tokens: tokens,
-        },
-      });
+      // 保存生成记录（失败不影响返回结果）
+      try {
+        await this.prisma.aIPromptLog.create({
+          data: {
+            userId,
+            category,
+            budget,
+            requirements,
+            output: generatedContent,
+            model: modelName,
+            tokens: tokens,
+          },
+        });
+      } catch (logError) {
+        console.warn('⚠️ 保存AI日志失败:', logError.message);
+        // 日志保存失败不影响主流程
+      }
 
       return {
         success: true,
