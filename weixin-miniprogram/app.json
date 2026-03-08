@@ -5,7 +5,10 @@
     "pages/tender/tender",
     "pages/ai/ai",
     "pages/article/article",
-    "pages/profile/profile"
+    "pages/profile/profile",
+    "pages/matchmaking/index",
+    "pages/matchmaking/publish-demand",
+    "pages/matchmaking/publish-supply"
   ],
   "window": {
     "backgroundTextStyle": "light",

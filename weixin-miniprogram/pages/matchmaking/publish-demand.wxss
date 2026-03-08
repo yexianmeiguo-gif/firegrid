@@ -1,0 +1,15 @@
+/* pages/matchmaking/publish-demand.wxss */
+@import "publish-supply.wxss";
+
+.form-header {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+}
+
+.validity-item.active,
+.stock-item.active {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+}
