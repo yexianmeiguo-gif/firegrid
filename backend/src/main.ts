@@ -6,6 +6,9 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  // 设置全局 API 前缀
+  app.setGlobalPrefix('api');
+
   // 全局验证管道
   app.useGlobalPipes(
     new ValidationPipe({
