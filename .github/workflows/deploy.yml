@@ -117,7 +117,7 @@ jobs:
       
     - name: Login to CloudBase
       run: |
-        echo "${{ secrets.TENCENTCLOUD_SECRET_KEY }}" | cloudbase login --apiKeyId "${{ secrets.TENCENTCLOUD_SECRET_ID }}" --apiKey
+        cloudbase login --apiKeyId "${{ secrets.TENCENTCLOUD_SECRET_ID }}" --apiKey "${{ secrets.TENCENTCLOUD_SECRET_KEY }}"
       
     - name: Deploy to CloudBase
       run: |
