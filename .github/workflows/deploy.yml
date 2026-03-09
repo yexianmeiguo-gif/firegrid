@@ -131,6 +131,7 @@ jobs:
       env:
         TENCENTCLOUD_SECRET_ID: ${{ secrets.TENCENTCLOUD_SECRET_ID }}
         TENCENTCLOUD_SECRET_KEY: ${{ secrets.TENCENTCLOUD_SECRET_KEY }}
+        CLOUDBASE_ENV_ID: ${{ secrets.CLOUDBASE_ENV_ID }}
 
   # 通知
   notify:
