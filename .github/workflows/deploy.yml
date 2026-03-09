@@ -1,4 +1,4 @@
-name: Deploy to Tencent CloudBase
+name: Build and Test
 
 on:
   push:
@@ -7,7 +7,6 @@ on:
 
 env:
   NODE_VERSION: '18'
-  CLOUDBASE_ENV_ID: ${{ secrets.CLOUDBASE_ENV_ID }}
 
 jobs:
   # 测试和构建
@@ -22,7 +21,6 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ env.NODE_VERSION }}
-      # 移除缓存配置，避免 package-lock.json 缺失问题
 
     - name: Install dependencies
       run: |
@@ -51,8 +49,6 @@ jobs:
       env:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
         JWT_SECRET: ${{ secrets.JWT_SECRET }}
-        TENCENTCLOUD_SECRET_ID: ${{ secrets.TENCENTCLOUD_SECRET_ID }}
-        TENCENTCLOUD_SECRET_KEY: ${{ secrets.TENCENTCLOUD_SECRET_KEY }}
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
@@ -92,68 +88,16 @@ jobs:
       env:
         DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
-  # 部署到 CloudBase
-  deploy:
-    runs-on: ubuntu-latest
-    needs: [build, migrate]
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-
-    - name: Download build artifacts
-      uses: actions/download-artifact@v4
-      with:
-        name: backend-dist
-        path: backend/dist
-
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ env.NODE_VERSION }}
-
-    - name: Install CloudBase CLI
-      run: |
-        npm install -g @cloudbase/cli
-        # 确保 tcb 命令可用
-        cloudbase --version
-
-    - name: Pre-install CloudBase Node Plugin
-      run: |
-        mkdir -p ~/cloudbase-framework/registry
-        cd ~/cloudbase-framework/registry
-        npm init -y
-        npm install @cloudbase/framework-plugin-node
-
-    - name: Login to CloudBase
-      run: |
-        cloudbase login --apiKeyId "${{ secrets.TENCENTCLOUD_SECRET_ID }}" --apiKey "${{ secrets.TENCENTCLOUD_SECRET_KEY }}"
-
-    - name: Deploy to CloudBase
-      run: |
-        cd backend
-        # 复制必要文件到 dist 目录
-        cp package.json dist/
-        cp -r prisma dist/ 2>/dev/null || true
-
-        # 部署 (使用新的 tcb 命令)
-        tcb framework deploy --envId ${{ secrets.CLOUDBASE_ENV_ID }}
-      env:
-        TENCENTCLOUD_SECRET_ID: ${{ secrets.TENCENTCLOUD_SECRET_ID }}
-        TENCENTCLOUD_SECRET_KEY: ${{ secrets.TENCENTCLOUD_SECRET_KEY }}
-        CLOUDBASE_ENV_ID: ${{ secrets.CLOUDBASE_ENV_ID }}
-
-  # 通知
+  # 通知 - 代码已推送到 GitHub，腾讯云会自动部署
   notify:
     runs-on: ubuntu-latest
-    needs: deploy
+    needs: [build, migrate]
     if: always()
 
     steps:
-    - name: Notify deployment status
+    - name: Notify status
       run: |
-        if [ "${{ needs.deploy.result }}" == "success" ]; then
-          echo "🎉 FireGrid 部署成功！"
-        else
-          echo "❌ FireGrid 部署失败，请检查日志"
-        fi
+        echo "✅ Build and tests completed!"
+        echo "🚀 Code pushed to GitHub."
+        echo "☁️  Tencent CloudBase will auto-deploy from GitHub."
+        echo "📱 Please check CloudBase console for deployment status."
