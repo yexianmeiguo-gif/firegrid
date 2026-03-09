@@ -43,6 +43,7 @@
     "tencentcloud-sdk-nodejs": "^4.0.857"
   },
   "devDependencies": {
+    "@cloudbase/framework-plugin-node": "^1.9.7",
     "@nestjs/cli": "^10.0.0",
     "@nestjs/schematics": "^10.0.0",
     "@nestjs/testing": "^10.0.0",

@@ -113,7 +113,10 @@ jobs:
         node-version: ${{ env.NODE_VERSION }}
         
     - name: Install CloudBase CLI
-      run: npm install -g @cloudbase/cli
+      run: |
+        npm install -g @cloudbase/cli
+        # 确保 tcb 命令可用
+        cloudbase --version
       
     - name: Login to CloudBase
       run: |
@@ -126,8 +129,8 @@ jobs:
         cp package.json dist/
         cp -r prisma dist/ 2>/dev/null || true
         
-        # 部署
-        cloudbase framework:deploy --envId ${{ secrets.CLOUDBASE_ENV_ID }}
+        # 部署 (使用新的 tcb 命令)
+        tcb framework deploy --envId ${{ secrets.CLOUDBASE_ENV_ID }}
       env:
         TENCENTCLOUD_SECRET_ID: ${{ secrets.TENCENTCLOUD_SECRET_ID }}
         TENCENTCLOUD_SECRET_KEY: ${{ secrets.TENCENTCLOUD_SECRET_KEY }}
