@@ -288,7 +288,7 @@ export class MatchmakingService {
     // 计算匹配分数
     const matches: MatchResult[] = demands.map(demand => {
       const { score, reasons } = this.calculateMatchScore(demand, offer);
-      return { offer, score, reasons };
+      return { demand, score, reasons };
     });
 
     // 过滤低分匹配
@@ -303,7 +303,7 @@ export class MatchmakingService {
         this.prisma.demandMatch.upsert({
           where: {
             demandId_offerId: {
-              demandId: match.offer.id,
+              demandId: match.demand.id,
               offerId: offer.id,
             },
           },
@@ -312,7 +312,7 @@ export class MatchmakingService {
             matchReasons: match.reasons,
           },
           create: {
-            demandId: match.offer.id,
+            demandId: match.demand.id,
             offerId: offer.id,
             matchScore: match.score,
             matchReasons: match.reasons,

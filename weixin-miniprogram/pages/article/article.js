@@ -3,6 +3,11 @@ const app = getApp()
 
 Page({
   data: {
-    apiUrl: app.globalData.apiBaseUrl
+    apiUrl: ''
+  },
+  onLoad: function() {
+    this.setData({
+      apiUrl: app.globalData.apiBaseUrl
+    })
   }
 })

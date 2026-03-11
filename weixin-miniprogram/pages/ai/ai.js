@@ -33,19 +33,27 @@ Page({
     this.setData({ loading: true })
 
     try {
-      const res = await wx.request({
-        url: `${app.globalData.apiBaseUrl}/ai/generate-bidding`,
-        method: 'POST',
-        header: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer test-token'
-        },
-        data: {
-          category,
-          budget,
-          requirements: this.data.requirements
-        }
-      })
+      const requestPromise = () => {
+        return new Promise((resolve, reject) => {
+          wx.request({
+            url: `${app.globalData.apiBaseUrl}/ai/generate-bidding`,
+            method: 'POST',
+            header: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer test-token'
+            },
+            data: {
+              category,
+              budget,
+              requirements: this.data.requirements
+            },
+            success: resolve,
+            fail: reject
+          })
+        })
+      }
+
+      const res = await requestPromise()
 
       if (res.data && res.data.content) {
         this.setData({ result: res.data.content })

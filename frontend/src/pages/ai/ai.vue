@@ -77,7 +77,7 @@
     
     <!-- 历史记录 -->
     <view class="history-section" v-if="history.length > 0 && !generatedContent">
-      <view class="section-title">📚 历史生成记录</text>
+      <view class="section-title">📚 历史生成记录</view>
       
       <view class="history-item" v-for="(item, index) in history" :key="index">
         <view class="history-info">
