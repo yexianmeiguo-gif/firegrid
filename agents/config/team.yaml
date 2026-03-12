@@ -1,0 +1,171 @@
+# FireGrid Multi-Agent Team Configuration
+# Generated: 2026-03-09T19:45:00Z
+
+team:
+  name: FireGrid Development Team
+  version: 1.0.0
+  status: active
+  mode: autonomous
+  
+agents:
+  - id: planner-001
+    name: 规划Agent
+    role: planner
+    status: active
+    capabilities:
+      - requirement_analysis
+      - task_decomposition
+      - priority_management
+    auto_confirm: true
+    notify_on: [task_created, plan_ready]
+    
+  - id: developer-001
+    name: 开发Agent-Alpha
+    role: developer
+    status: active
+    specialty: frontend
+    capabilities:
+      - wxml_development
+      - wxss_styling
+      - js_logic
+      - api_integration
+    auto_fix: true
+    parallel_tasks: 3
+    
+  - id: developer-002
+    name: 开发Agent-Beta
+    role: developer
+    status: active
+    specialty: backend
+    capabilities:
+      - nodejs_api
+      - database_design
+      - cloudbase_deploy
+    auto_fix: true
+    
+  - id: tester-001
+    name: 测试Agent
+    role: tester
+    status: active
+    capabilities:
+      - unit_testing
+      - integration_testing
+      - ui_testing
+      - error_detection
+    auto_test: true
+    test_on_save: true
+    
+  - id: debugger-001
+    name: 修复Agent
+    role: debugger
+    status: active
+    capabilities:
+      - error_analysis
+      - auto_fix_common
+      - wxml_tag_fix
+      - js_syntax_fix
+    auto_fix_level: aggressive
+    max_auto_fix_attempts: 3
+    
+  - id: deployer-001
+    name: 部署Agent
+    role: deployer
+    status: active
+    capabilities:
+      - cloudbase_deploy
+      - database_migration
+      - monitoring_setup
+    auto_deploy: false
+    require_confirmation: true
+    
+  - id: reporter-001
+    name: 汇报Agent
+    role: reporter
+    status: active
+    capabilities:
+      - progress_tracking
+      - status_reporting
+      - feishu_notification
+    report_frequency: on_complete
+    notify_channels: [feishu]
+
+workflows:
+  new_feature:
+    steps:
+      - agent: planner
+        action: analyze_requirement
+        output: task_list
+        
+      - agent: developer
+        action: implement
+        parallel: true
+        output: code
+        
+      - agent: tester
+        action: test
+        input: code
+        output: test_report
+        
+      - agent: debugger
+        action: fix_errors
+        condition: test_report.has_errors
+        output: fixed_code
+        
+      - agent: deployer
+        action: deploy
+        condition: test_report.success
+        require_approval: true
+        output: deployment_url
+        
+      - agent: reporter
+        action: notify_completion
+        output: completion_report
+
+auto_fix_rules:
+  - pattern: "WXML.*编译错误.*expect end-tag"
+    fix_type: wxml_tag_mismatch
+    auto_apply: true
+    
+  - pattern: "ReferenceError.*is not defined"
+    fix_type: undefined_variable
+    auto_apply: true
+    
+  - pattern: "503 Service Unavailable"
+    fix_type: restart_cloudbase
+    auto_apply: false
+    require_approval: true
+    
+  - pattern: "Cannot find module"
+    fix_type: install_dependency
+    auto_apply: true
+
+monitoring:
+  enabled: true
+  check_interval: 300
+  
+  checks:
+    - type: file_change
+      path: firegrid-weixin/pages
+      action: auto_fix_and_test
+      
+    - type: api_health
+      url: https://firegrid-backend-230828-6-1409174142.sh.run.tcloudbase.com/api/health
+      interval: 300
+      action: notify_on_failure
+      
+    - type: git_status
+      interval: 3600
+      action: auto_commit_changes
+
+notifications:
+  feishu:
+    enabled: true
+    webhooks:
+      - name: default
+        url: ${FEISHU_WEBHOOK_URL}
+    
+  events:
+    - task_completed
+    - error_auto_fixed
+    - deployment_ready
+    - manual_intervention_required

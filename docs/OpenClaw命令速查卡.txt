@@ -1,0 +1,109 @@
+🔥 OpenClaw 常用命令速查表
+━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 快速启动
+openclaw gateway start      # 启动
+openclaw gateway stop       # 停止
+openclaw gateway restart    # 重启
+openclaw status             # 查看状态
+
+━━━━━━━━━━━━━━━━━━━━━━
+
+🔥 FireGrid 项目命令
+
+【一键修复】
+fg-fix           # 自动修复所有代码错误
+
+【自动验证】
+fg-validate      # 验证所有代码
+fg-scan          # 扫描项目错误
+fg-scan report   # 查看扫描报告
+
+【备份恢复】
+fg-backup              # 立即手动备份
+fg-backups             # 查看所有备份
+fg-restore latest      # 恢复到最新备份
+fg-restore 20260309    # 恢复到指定日期
+
+【Agent 管理】
+fg-agents start        # 启动 Agent 团队
+fg-agents status       # 查看 Agent 状态
+
+【快捷操作】
+fg-status        # 查看项目状态
+fg-deploy        # 部署后端
+fg-log           # 查看日志
+fg-open          # 打开项目目录
+
+━━━━━━━━━━━━━━━━━━━━━━
+
+📝 常用工具命令
+
+【文件操作】
+pwd              # 查看当前目录
+ls               # 列出文件
+ls -la           # 详细列表
+cd 目录名        # 切换目录
+cd ..            # 返回上级
+mkdir 目录名     # 创建目录
+touch 文件名     # 创建文件
+cat 文件名       # 查看文件内容
+
+【Git 操作】
+git status       # 查看状态
+git add .        # 添加所有文件
+git commit -m "说明"  # 提交
+git push         # 推送到远程
+git pull         # 拉取最新代码
+
+【Node.js】
+npm install      # 安装依赖
+npm start        # 运行项目
+npm run build    # 构建项目
+
+━━━━━━━━━━━━━━━━━━━━━━
+
+💡 实用技巧
+
+【快捷键】
+Ctrl + C         # 终止命令
+Ctrl + L         # 清屏
+Tab              # 自动补全
+↑ / ↓            # 历史命令
+
+━━━━━━━━━━━━━━━━━━━━━━
+
+🆘 故障排除
+
+# OpenClaw 无法启动
+pkill openclaw
+openclaw gateway start
+
+# 权限问题
+chmod +x 文件名
+chmod -R 755 目录名
+
+# 清理缓存
+npm cache clean --force
+
+━━━━━━━━━━━━━━━━━━━━━━
+
+📚 最常用的10个命令：
+
+1. fg-fix              修复代码
+2. fg-backup           备份项目
+3. fg-restore latest   恢复备份
+4. openclaw gateway restart  重启服务
+5. git add . && git commit -m "xxx"  提交代码
+6. cd ~/.openclaw/workspace/firegrid  进入项目
+7. ls -la              查看文件
+8. cat 文件名          查看内容
+9. pwd                 查看当前路径
+10. fg-status          查看状态
+
+━━━━━━━━━━━━━━━━━━━━━━
+
+🆘 遇到问题？
+截图终端报错 → 发给我 → 我来解决！
+
+━━━━━━━━━━━━━━━━━━━━━━
