@@ -6,6 +6,7 @@
     "pages/ai/ai",
     "pages/article/article",
     "pages/profile/profile",
+    "pages/vehicles/vehicles",
     "pages/matchmaking/index",
     "pages/matchmaking/publish-demand",
     "pages/matchmaking/publish-supply"

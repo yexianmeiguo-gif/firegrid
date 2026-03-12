@@ -46,11 +46,22 @@
     <view class="feature-grid">
       <view class="feature-card btn-active" bindtap="goToPage" data-url="/pages/equipment/equipment" style="animation-delay: 0.1s;">
         <view class="feature-icon-wrapper" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);">
-          <text class="feature-icon">🚒</text>
+          <text class="feature-icon">🧯</text>
         </view>
         <view class="feature-info">
           <text class="feature-name">装备库</text>
           <text class="feature-desc">浏览消防装备</text>
+        </view>
+        <text class="feature-arrow">></text>
+      </view>
+
+      <view class="feature-card btn-active" bindtap="goToPage" data-url="/pages/vehicles/vehicles" style="animation-delay: 0.15s;">
+        <view class="feature-icon-wrapper" style="background: linear-gradient(135deg, #ff9f43 0%, #ff7b25 100%);">
+          <text class="feature-icon">🚒</text>
+        </view>
+        <view class="feature-info">
+          <text class="feature-name">消防车辆</text>
+          <text class="feature-desc">专业车辆库</text>
         </view>
         <text class="feature-arrow">></text>
       </view>
