@@ -1,0 +1,448 @@
+{
+  "fire_detection": {
+    "category": "火灾报警系统",
+    "sub_category": "火灾报警触发器件",
+    "products": [
+      {
+        "name": "点型感烟火灾探测器",
+        "standards": ["GB 4715"],
+        "keywords": ["感烟", "烟雾探测", "smoke detector"]
+      },
+      {
+        "name": "点型感温火灾探测器",
+        "standards": ["GB 4716"],
+        "keywords": ["感温", "温度探测", "heat detector"]
+      },
+      {
+        "name": "独立式感烟火灾探测报警器",
+        "standards": ["GB 20517"],
+        "keywords": ["独立式", "感烟", "报警器"]
+      },
+      {
+        "name": "独立式感温火灾探测报警器",
+        "standards": ["GB 30122"],
+        "keywords": ["独立式", "感温", "报警器"]
+      },
+      {
+        "name": "点型红外火焰探测器",
+        "standards": ["GB 15631"],
+        "keywords": ["红外", "火焰探测", "infrared"]
+      },
+      {
+        "name": "吸气式感烟火灾探测器",
+        "standards": ["GB 15631"],
+        "keywords": ["吸气式", "aspirating"]
+      },
+      {
+        "name": "图像型火灾探测器",
+        "standards": ["GB 15631"],
+        "keywords": ["图像", "视频", "camera"]
+      },
+      {
+        "name": "点型一氧化碳火灾探测器",
+        "standards": ["GB 15631"],
+        "keywords": ["一氧化碳", "CO", "carbon monoxide"]
+      },
+      {
+        "name": "点型紫外火焰探测器",
+        "standards": ["GB 12791"],
+        "keywords": ["紫外", "UV", "火焰"]
+      },
+      {
+        "name": "线型光束感烟火灾探测器",
+        "standards": ["GB 14003"],
+        "keywords": ["线型", "光束", "beam"]
+      },
+      {
+        "name": "线型感温火灾探测器",
+        "standards": ["GB 16280"],
+        "keywords": ["线型", "感温", "linear heat"]
+      },
+      {
+        "name": "可燃气体探测器",
+        "standards": ["GB 15322.1", "GB 15322.2", "GB 15322.3", "GB 15322.4"],
+        "keywords": ["可燃气体", "combustible gas", "天然气", "煤气"]
+      },
+      {
+        "name": "电气火灾监控探测器",
+        "standards": ["GB 14287.2", "GB 14287.3", "GB 14287.4"],
+        "keywords": ["电气火灾", "剩余电流", "electrical fire"]
+      }
+    ]
+  },
+  "fire_extinguisher": {
+    "category": "灭火器",
+    "products": [
+      {
+        "name": "手提式水基型灭火器",
+        "sub_category": "手提式灭火器",
+        "standards": ["GB 4351"],
+        "keywords": ["手提", "水基", "water"]
+      },
+      {
+        "name": "手提式干粉灭火器",
+        "sub_category": "手提式灭火器",
+        "standards": ["GB 4351"],
+        "keywords": ["手提", "干粉", "powder"]
+      },
+      {
+        "name": "手提式二氧化碳灭火器",
+        "sub_category": "手提式灭火器",
+        "standards": ["GB 4351"],
+        "keywords": ["手提", "二氧化碳", "CO2"]
+      },
+      {
+        "name": "手提式洁净气体灭火器",
+        "sub_category": "手提式灭火器",
+        "standards": ["GB 4351"],
+        "keywords": ["手提", "洁净气体", "clean agent"]
+      },
+      {
+        "name": "推车式水基型灭火器",
+        "sub_category": "推车式灭火器",
+        "standards": ["GB 8109"],
+        "keywords": ["推车", "水基"]
+      },
+      {
+        "name": "推车式干粉灭火器",
+        "sub_category": "推车式灭火器",
+        "standards": ["GB 8109"],
+        "keywords": ["推车", "干粉"]
+      },
+      {
+        "name": "推车式二氧化碳灭火器",
+        "sub_category": "推车式灭火器",
+        "standards": ["GB 8109"],
+        "keywords": ["推车", "二氧化碳"]
+      },
+      {
+        "name": "推车式洁净气体灭火器",
+        "sub_category": "推车式灭火器",
+        "standards": ["GB 8109"],
+        "keywords": ["推车", "洁净气体"]
+      }
+    ]
+  },
+  "emergency_lighting": {
+    "category": "避难逃生设施",
+    "sub_category": "消防应急照明和疏散指示装置",
+    "products": [
+      {
+        "name": "消防应急疏散标志灯具",
+        "standards": ["GB 17945"],
+        "keywords": ["疏散", "标志灯", "exit sign"]
+      },
+      {
+        "name": "消防应急照明灯具",
+        "standards": ["GB 17945"],
+        "keywords": ["应急照明", "emergency lighting"]
+      },
+      {
+        "name": "应急照明控制器",
+        "standards": ["GB 17945"],
+        "keywords": ["照明控制器", "controller"]
+      },
+      {
+        "name": "应急照明集中电源",
+        "standards": ["GB 17945"],
+        "keywords": ["集中电源", "central power"]
+      }
+    ]
+  },
+  "escape_equipment": {
+    "category": "避难逃生设施",
+    "sub_category": "避难逃生器材",
+    "products": [
+      {
+        "name": "逃生缓降器",
+        "standards": ["GB 21976.2"],
+        "keywords": ["缓降器", "descender"]
+      },
+      {
+        "name": "逃生梯",
+        "standards": ["GB 21976.3"],
+        "keywords": ["逃生梯", "escape ladder"]
+      },
+      {
+        "name": "逃生滑道",
+        "standards": ["GB 21976.4"],
+        "keywords": ["滑道", "escape chute"]
+      },
+      {
+        "name": "应急逃生器",
+        "standards": ["GB 21976.5"],
+        "keywords": ["应急逃生器", "emergency escape device"]
+      },
+      {
+        "name": "逃生绳",
+        "standards": ["GB 21976.6"],
+        "keywords": ["逃生绳", "escape rope"]
+      },
+      {
+        "name": "过滤式消防自救呼吸器",
+        "standards": ["GB 21976.7"],
+        "keywords": ["过滤式", "自救呼吸器", "filter respirator"]
+      },
+      {
+        "name": "化学氧消防自救呼吸器",
+        "standards": ["XF 411"],
+        "keywords": ["化学氧", "自救呼吸器", "chemical oxygen"]
+      }
+    ]
+  },
+  "sprinkler_system": {
+    "category": "固定灭火系统",
+    "sub_category": "喷水灭火系统",
+    "products": [
+      {
+        "name": "洒水喷头",
+        "standards": ["GB 5135.1"],
+        "keywords": ["洒水喷头", "sprinkler head", "喷头"]
+      },
+      {
+        "name": "湿式报警阀",
+        "standards": ["GB 5135.2"],
+        "keywords": ["湿式", "报警阀", "wet alarm valve"]
+      },
+      {
+        "name": "干式报警阀",
+        "standards": ["GB 5135.3"],
+        "keywords": ["干式", "报警阀", "dry alarm valve"]
+      },
+      {
+        "name": "雨淋报警阀",
+        "standards": ["GB 5135.4"],
+        "keywords": ["雨淋", "报警阀", "deluge valve"]
+      },
+      {
+        "name": "预作用装置",
+        "standards": ["GB 5135.5"],
+        "keywords": ["预作用", "preaction"]
+      },
+      {
+        "name": "水流指示器",
+        "standards": ["GB 5135.11"],
+        "keywords": ["水流指示器", "flow indicator"]
+      }
+    ]
+  },
+  "fire_truck": {
+    "category": "消防车辆",
+    "products": [
+      {
+        "name": "水罐消防车",
+        "sub_category": "water-tanker",
+        "standards": ["GB 7956"],
+        "keywords": ["水罐", "water tanker", "水罐车"]
+      },
+      {
+        "name": "泡沫消防车",
+        "sub_category": "foam-truck",
+        "standards": ["GB 7956"],
+        "keywords": ["泡沫", "foam", "泡沫车"]
+      },
+      {
+        "name": "干粉消防车",
+        "sub_category": "dry-powder",
+        "standards": ["GB 7956"],
+        "keywords": ["干粉", "powder", "干粉车"]
+      },
+      {
+        "name": "压缩空气泡沫消防车",
+        "sub_category": "compressed-air-foam",
+        "standards": ["GB 7956"],
+        "keywords": ["压缩空气", "CAFS", "空气泡沫"]
+      },
+      {
+        "name": "云梯消防车",
+        "sub_category": "aerial-ladder",
+        "standards": ["GB 7956"],
+        "keywords": ["云梯", "aerial ladder", "登高"]
+      },
+      {
+        "name": "举高喷射消防车",
+        "sub_category": "aerial-platform",
+        "standards": ["GB 7956"],
+        "keywords": ["举高", "platform", "喷射"]
+      },
+      {
+        "name": "抢险救援消防车",
+        "sub_category": "rescue-truck",
+        "standards": ["GB 7956"],
+        "keywords": ["抢险", "救援", "rescue"]
+      },
+      {
+        "name": "器材消防车",
+        "sub_category": "equipment-truck",
+        "standards": ["GB 7956"],
+        "keywords": ["器材", "equipment", "器材车"]
+      },
+      {
+        "name": "照明消防车",
+        "sub_category": "lighting-truck",
+        "standards": ["GB 7956"],
+        "keywords": ["照明", "lighting", "照明车"]
+      },
+      {
+        "name": "通信指挥消防车",
+        "sub_category": "command-truck",
+        "standards": ["GB 7956"],
+        "keywords": ["通信", "指挥", "command", "通讯"]
+      },
+      {
+        "name": "勘察消防车",
+        "sub_category": "investigation-truck",
+        "standards": ["GB 7956"],
+        "keywords": ["勘察", "investigation", "侦检"]
+      },
+      {
+        "name": "排烟消防车",
+        "sub_category": "smoke-exhaust",
+        "standards": ["GB 7956"],
+        "keywords": ["排烟", "smoke exhaust", "排风"]
+      },
+      {
+        "name": "供水消防车",
+        "sub_category": "water-supply",
+        "standards": ["GB 7956"],
+        "keywords": ["供水", "water supply", "供液"]
+      },
+      {
+        "name": "供气消防车",
+        "sub_category": "air-supply",
+        "standards": ["GB 7956"],
+        "keywords": ["供气", "air supply", "供风"]
+      }
+    ]
+  },
+  "personal_protection": {
+    "category": "个人防护装备",
+    "products": [
+      {
+        "name": "消防员灭火防护服",
+        "standards": ["GA 10"],
+        "keywords": ["防护服", "protective clothing", "灭火服"]
+      },
+      {
+        "name": "消防员灭火防护头盔",
+        "standards": ["GA 44"],
+        "keywords": ["头盔", "helmet", "安全帽"]
+      },
+      {
+        "name": "消防员灭火防护靴",
+        "standards": ["GA 6"],
+        "keywords": ["防护靴", "boots", "消防靴"]
+      },
+      {
+        "name": "消防员灭火防护手套",
+        "standards": ["GA 7"],
+        "keywords": ["手套", "gloves", "防护手套"]
+      },
+      {
+        "name": "消防员呼吸保护装备",
+        "standards": ["GA 124"],
+        "keywords": ["呼吸器", "breathing apparatus", "空气呼吸器", "SCBA"]
+      },
+      {
+        "name": "消防员隔热防护服",
+        "standards": ["GA 634"],
+        "keywords": ["隔热", "heat resistant", "防高温"]
+      },
+      {
+        "name": "消防员抢险救援防护服装",
+        "standards": ["GA 633"],
+        "keywords": ["抢险", "救援", "rescue clothing"]
+      },
+      {
+        "name": "消防员化学防护服装",
+        "standards": ["GA 770"],
+        "keywords": ["化学", "chemical", "防化服"]
+      },
+      {
+        "name": "消防员防坠落装备",
+        "standards": ["GA 494"],
+        "keywords": ["防坠落", "fall protection", "安全带", "安全绳"]
+      }
+    ]
+  },
+  "rescue_tools": {
+    "category": "消防救援工具",
+    "products": [
+      {
+        "name": "液压破拆工具",
+        "standards": ["GA 630"],
+        "keywords": ["液压", "hydraulic", "破拆", "剪切器", "扩张器"]
+      },
+      {
+        "name": "气动破拆工具",
+        "standards": ["XF 3007"],
+        "keywords": ["气动", "pneumatic", "风动"]
+      },
+      {
+        "name": "无齿锯",
+        "standards": ["XF 1"],
+        "keywords": ["无齿锯", "cut-off saw", "切割机"]
+      },
+      {
+        "name": "机动链锯",
+        "standards": ["XF 2"],
+        "keywords": ["链锯", "chain saw", "油锯"]
+      },
+      {
+        "name": "破拆斧",
+        "standards": ["XF 3"],
+        "keywords": ["破拆斧", "fire axe", "消防斧"]
+      },
+      {
+        "name": "消防腰斧",
+        "standards": ["GA 392"],
+        "keywords": ["腰斧", "hatchet", "小斧"]
+      },
+      {
+        "name": "消防撬棍",
+        "standards": ["XF 5"],
+        "keywords": ["撬棍", "pry bar", "撬杠"]
+      },
+      {
+        "name": "消防梯",
+        "standards": ["XF 6"],
+        "keywords": ["消防梯", "fire ladder", "拉梯", "挂钩梯"]
+      }
+    ]
+  },
+  "hydrant_equipment": {
+    "category": "消火栓系统",
+    "products": [
+      {
+        "name": "室内消火栓",
+        "standards": ["GB 3445"],
+        "keywords": ["室内", "消火栓", "indoor hydrant"]
+      },
+      {
+        "name": "室外消火栓",
+        "standards": ["GB 4452"],
+        "keywords": ["室外", "消火栓", "outdoor hydrant", "地上式", "地下式"]
+      },
+      {
+        "name": "消防水枪",
+        "standards": ["GB 8181"],
+        "keywords": ["水枪", "nozzle", "直流水枪", "开花水枪"]
+      },
+      {
+        "name": "消防水带",
+        "standards": ["GB 6246"],
+        "keywords": ["水带", "hose", "消防软管"]
+      },
+      {
+        "name": "消防接口",
+        "standards": ["GB 12514"],
+        "keywords": ["接口", "coupling", "卡扣"]
+      },
+      {
+        "name": "消火栓箱",
+        "standards": ["GB 4066"],
+        "keywords": ["消火栓箱", "hydrant cabinet", "消防箱"]
+      }
+    ]
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "totalSuppliers": 736,
+  "statusDistribution": {
+    "homepage_only": 105,
+    "unreachable": 230,
+    "success": 299,
+    "invalid_url": 42,
+    "no_products": 59,
+    "error": 1
+  },
+  "dataElements": {
+    "hasUrl": 247,
+    "hasProductCount": 237,
+    "hasImageCount": 172,
+    "hasProducts": 289,
+    "totalProducts": 2932,
+    "totalImages": 7847
+  },
+  "usability": {
+    "usable": 299,
+    "partial": 164,
+    "unusable": 273
+  },
+  "recommendation": {
+    "phase1": {
+      "count": 299,
+      "status": [
+        "success"
+      ],
+      "priority": "high"
+    },
+    "phase2": {
+      "count": 164,
+      "status": [
+        "homepage_only",
+        "no_products"
+      ],
+      "priority": "medium"
+    },
+    "phase3": {
+      "count": 273,
+      "status": [
+        "unreachable",
+        "invalid_url",
+        "error"
+      ],
+      "priority": "low"
+    }
+  }
+}

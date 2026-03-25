@@ -1,0 +1,1232 @@
+[
+  {
+    "name": "线型光束感烟火灾探测器",
+    "standardName": "线型光束感烟火灾探测器",
+    "description": "对火焰中波长小于 300nm 的紫外光辐射响应的火焰探",
+    "standards": [
+      "GB 15631"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "对温度和/或升温速率和/或温度变化响应的线型火灾",
+    "standardName": "对温度和/或升温速率和/或温度变化响应的线型火灾",
+    "description": "对温度和/或升温速率和/或温度变化响应的线型火灾",
+    "standards": [
+      "GB 14003"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "用于向消火栓水泵控制器或消防联动控制器发送启动",
+    "standardName": "用于向消火栓水泵控制器或消防联动控制器发送启动",
+    "description": "用于向消火栓水泵控制器或消防联动控制器发送启动",
+    "standards": [
+      "GB 31252"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "可燃气体报警控制器",
+    "standardName": "可燃气体报警控制器",
+    "description": "测器供电、显示可燃气体浓度及接收并发出可燃气体",
+    "standards": [
+      "GB 4717"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "住宅建筑内用于对联网用户的家用火灾报警设施进行",
+    "standardName": "住宅建筑内用于对联网用户的家用火灾报警设施进行",
+    "description": "住宅建筑内用于对联网用户的家用火灾报警设施进行",
+    "standards": [
+      "GB 16808"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "实时监测，实现对联网用户的火灾报警信息、运行状",
+    "standardName": "实时监测，实现对联网用户的火灾报警信息、运行状",
+    "description": "实时监测，实现对联网用户的火灾报警信息、运行状",
+    "standards": [
+      "GB 22370"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "态信息以及消防安全管理信息的接收、查询、管理，",
+    "standardName": "态信息以及消防安全管理信息的接收、查询、管理，",
+    "description": "并为联网用户提供信息服务的装置。",
+    "standards": [
+      "GB 22370"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "用于监控消防设备电源工作状态，在电源发生过压、",
+    "standardName": "用于监控消防设备电源工作状态，在电源发生过压、",
+    "description": "用于监控消防设备电源工作状态，在电源发生过压、",
+    "standards": [
+      "GB 26875.1"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "与火灾报警控制器分开设置，火灾情况下能够发出声",
+    "standardName": "与火灾报警控制器分开设置，火灾情况下能够发出声",
+    "description": "用于显示并控制防火门打开、关闭状态的控制装置。",
+    "standards": [
+      "GB 29364"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "用于控制气体灭火系统的控制设备。",
+    "standardName": "用于控制气体灭火系统的控制设备。",
+    "description": "用于控制气体灭火系统的控制设备。",
+    "standards": [
+      "GB 17429"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "用于控制消防泵、防排烟风机、双电源、消防电动开",
+    "standardName": "用于控制消防泵、防排烟风机、双电源、消防电动开",
+    "description": "用于控制消防泵、防排烟风机、双电源、消防电动开",
+    "standards": [
+      "GB 16806"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "交流电源断电时，能够为各类消防设备供电的电源设",
+    "standardName": "交流电源断电时，能够为各类消防设备供电的电源设",
+    "description": "交流电源断电时，能够为各类消防设备供电的电源设",
+    "standards": [
+      "XF/T 3011"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "用于消防控制中心（室）与建筑物中各部位之间通话",
+    "standardName": "用于消防控制中心（室）与建筑物中各部位之间通话",
+    "description": "用于消防控制中心（室）与建筑物中各部位之间通话",
+    "standards": [
+      "GB 16806"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "报警、屏蔽等信息，通过网络传输给监控中心的设备。",
+    "standardName": "报警、屏蔽等信息，通过网络传输给监控中心的设备。",
+    "description": "用于控制器和其所连接的受控设备和受控部件之间信",
+    "standards": [
+      "GB 16806"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "筑中布局、工作状态及其他消防安全信息的显示装置。",
+    "standardName": "筑中布局、工作状态及其他消防安全信息的显示装置。",
+    "description": "适用于初起火灾，可手提移动、喷射水基型灭火剂的",
+    "standards": [
+      "GB 16806"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "火灾等紧急情况下为人员逃生和消防作业提供照明的",
+    "standardName": "火灾等紧急情况下为人员逃生和消防作业提供照明的",
+    "description": "火灾等紧急情况下为人员逃生和消防作业提供照明的",
+    "standards": [
+      "GB 17945"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "源型消防应急灯具进行供电的电源。",
+    "standardName": "源型消防应急灯具进行供电的电源。",
+    "description": "源型消防应急灯具进行供电的电源。",
+    "standards": [
+      "GB 17945"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "建筑火灾发生时，供被困人员逃生使用的专用固定式",
+    "standardName": "建筑火灾发生时，供被困人员逃生使用的专用固定式",
+    "description": "建筑火灾发生时，供被困人员逃生使用的专用固定式",
+    "standards": [
+      "GB 21976.2"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "建筑火灾发生时，供被困人员一次性使用的专用应急",
+    "standardName": "建筑火灾发生时，供被困人员一次性使用的专用应急",
+    "description": "建筑火灾发生时，供被困人员一次性使用的专用应急",
+    "standards": [
+      "GB 21976.4"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "火灾时单人使用的逃生绳。",
+    "standardName": "火灾时单人使用的逃生绳。",
+    "description": "适用于发生火灾时空气中氧气浓度不低于 17%的场所",
+    "standards": [
+      "GB 21976.6"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "救呼吸器。",
+    "standardName": "救呼吸器。",
+    "description": "适用于发生火灾时人员以逃生为目的，一次性使用的",
+    "standards": [
+      "GB 21976.7"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "化学氧消防自救呼吸器",
+    "standardName": "化学氧消防自救呼吸器",
+    "description": "于作业型和救护型呼吸器，也不适用于潜水型呼吸器。",
+    "standards": [
+      "XF 411"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "可以持续地喷水形成水幕帘，对受火灾威胁表面进行",
+    "standardName": "可以持续地喷水形成水幕帘，对受火灾威胁表面进行",
+    "description": "可以持续地喷水形成水幕帘，对受火灾威胁表面进行",
+    "standards": [
+      "GB 5135.9"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "和防护冷却用水幕喷头。",
+    "standardName": "和防护冷却用水幕喷头。",
+    "description": "用于大空间场所或露天堆场，能够将水喷洒成雨滴状，",
+    "standards": [
+      "GB 5135.22"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "消防用易熔合金元件",
+    "standardName": "消防用易熔合金元件",
+    "description": "适用于湿式自动喷水灭火系统，只允许水流入湿式灭",
+    "standards": [
+      "XF 863"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "干式报警阀和差动式干式报警阀。",
+    "standardName": "干式报警阀和差动式干式报警阀。",
+    "description": "适用于开式水喷淋/水喷雾系统，通过电动、机械、气",
+    "standards": [
+      "GB 5135.4"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "由预作用报警阀组、控制盘、气压维持装置和空气供",
+    "standardName": "由预作用报警阀组、控制盘、气压维持装置和空气供",
+    "description": "由预作用报警阀组、控制盘、气压维持装置和空气供",
+    "standards": [
+      "GB 5135.5"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "消防单向阀和消防地埋闸阀等阀门的统称；按驱动方",
+    "standardName": "消防单向阀和消防地埋闸阀等阀门的统称；按驱动方",
+    "description": "用阀门、对夹连接通用阀门、卡箍连接（沟槽连接）",
+    "standards": [
+      "GB 5135.6"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "用于自动喷水灭火系统中将水流信号转化为电信号的",
+    "standardName": "用于自动喷水灭火系统中将水流信号转化为电信号的",
+    "description": "用于自动喷水灭火系统中将水流信号转化为电信号的",
+    "standards": [
+      "GB 5135.10"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "一种报警装置；按结构形式可分为法兰式、沟槽式、",
+    "standardName": "一种报警装置；按结构形式可分为法兰式、沟槽式、",
+    "description": "由试水阀、压力表、试水喷嘴及保护罩等组成，用于",
+    "standards": [
+      "GB 5135.7"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "利用红外线、数字图像或其他火灾探测组件对火、温",
+    "standardName": "利用红外线、数字图像或其他火灾探测组件对火、温",
+    "description": "利用红外线、数字图像或其他火灾探测组件对火、温",
+    "standards": [
+      "GB 5135.17"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "消防供液部分组成。分为自动跟踪定位消防炮灭火装",
+    "standardName": "消防供液部分组成。分为自动跟踪定位消防炮灭火装",
+    "description": "消防供液部分组成。分为自动跟踪定位消防炮灭火装",
+    "standards": [
+      "GB 25204"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "雾灭火装置。",
+    "standardName": "雾灭火装置。",
+    "description": "主要适用于泡沫灭火系统，发泡倍数低于 20 的立式和",
+    "standards": [
+      "XF 1149"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "进行灭火的喷头；包括吸气型泡沫喷头、非吸气型泡",
+    "standardName": "进行灭火的喷头；包括吸气型泡沫喷头、非吸气型泡",
+    "description": "主要适用于泡沫灭火系统，安装于固定或移动支座上，",
+    "standards": [
+      "GB 20031"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "可单人或多人携带操作的以泡沫混合液作为灭火剂的",
+    "standardName": "可单人或多人携带操作的以泡沫混合液作为灭火剂的",
+    "description": "主要适用于泡沫灭火系统，通过压力罐、胶囊的压力",
+    "standards": [
+      "GB 20031"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "机通过联轴节与泡沫液泵连接成一体，经泡沫消防水",
+    "standardName": "机通过联轴节与泡沫液泵连接成一体，经泡沫消防水",
+    "description": "泵供给的压力水驱动水轮机，使泡沫液泵向水轮机后",
+    "standards": [
+      "GB 20031"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "的泡沫消防水管道按设定比例注入泡沫液的比例混合",
+    "standardName": "的泡沫消防水管道按设定比例注入泡沫液的比例混合",
+    "description": "适用于可移动的具备自身比例混合及空气泡沫产生能",
+    "standards": [
+      "GB 20031"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "为泡沫灭火系统供给泡沫液的工程用消防泵。",
+    "standardName": "为泡沫灭火系统供给泡沫液的工程用消防泵。",
+    "description": "为泡沫灭火系统供给泡沫液的工程用消防泵。",
+    "standards": [
+      "GB 20031"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "公共汽车客舱固定灭火系统",
+    "standardName": "公共汽车客舱固定灭火系统",
+    "description": "置及启动装置等组成，安装在公共汽车客舱内用于控",
+    "standards": [
+      "XF 498"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "固定式压缩空气泡沫灭火系统",
+    "standardName": "固定式压缩空气泡沫灭火系统",
+    "description": "由供水系统、泡沫液储罐、泡沫比例混合装置、七氟",
+    "standards": [
+      "XF 834"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "对灭火系统及部件的压力、温度、液位、质量、开关",
+    "standardName": "对灭火系统及部件的压力、温度、液位、质量、开关",
+    "description": "对灭火系统及部件的压力、温度、液位、质量、开关",
+    "standards": [
+      "GB 25972"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "安装在气体灭火系统防护区墙体上，用于泄放防护区",
+    "standardName": "安装在气体灭火系统防护区墙体上，用于泄放防护区",
+    "description": "安装在气体灭火系统防护区墙体上，用于泄放防护区",
+    "standards": [
+      "GB 25972"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "固定灭火系统驱动装置",
+    "standardName": "固定灭火系统驱动装置",
+    "description": "主要适用于固定灭火系统，能直接启动固定灭火系统",
+    "standards": [
+      "GB 25972"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "固定灭火系统控制装置",
+    "standardName": "固定灭火系统控制装置",
+    "description": "主要适用于固定灭火系统，能直接或间接接收火灾报",
+    "standards": [
+      "XF 61"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "火的柜式灭火装置。火灾探测部件、控制器可与柜体",
+    "standardName": "火的柜式灭火装置。火灾探测部件、控制器可与柜体",
+    "description": "通过向处于相对密闭空间内的可燃气体（或粉尘）与",
+    "standards": [
+      "GB 16670"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "防护区内氧浓度，使防护区内可燃物不致燃烧的防火",
+    "standardName": "防护区内氧浓度，使防护区内可燃物不致燃烧的防火",
+    "description": "适用于带有动力源的消防泵；包括供水消防泵组、稳",
+    "standards": [
+      "XF 1206"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "防泵组、电动机消防泵组、柴油机消防泵组。",
+    "standardName": "防泵组、电动机消防泵组、柴油机消防泵组。",
+    "description": "主要适用于水灭火系统，按预设工作方式供给消防用",
+    "standards": [
+      "GB 6245"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "组提供消防供水。",
+    "standardName": "组提供消防供水。",
+    "description": "组提供消防供水。",
+    "standards": [
+      "GB 27898.1"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "水设备分别利用恒压消防泵组特性、回流控压技术、",
+    "standardName": "水设备分别利用恒压消防泵组特性、回流控压技术、",
+    "description": "主要适用于水灭火系统，按预设工作方式供给消防用",
+    "standards": [
+      "GB 27898.2"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "日常压力的给水设备，其中消防无负压（叠压）稳压",
+    "standardName": "日常压力的给水设备，其中消防无负压（叠压）稳压",
+    "description": "主要适用于水灭火系统，按预设工作方式供给消防用",
+    "standards": [
+      "GB 27898.3"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "水；通过消防泵组提供消防用水的给水设备，其中消",
+    "standardName": "水；通过消防泵组提供消防用水的给水设备，其中消",
+    "description": "主要适用于水灭火系统，按预设工作方式供给消防用",
+    "standards": [
+      "GB 27898.3"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "日常压力，同时设置消防泵组提供消防用水的给水设",
+    "standardName": "日常压力，同时设置消防泵组提供消防用水的给水设",
+    "description": "主要适用于水灭火系统，按预设工作方式供给消防用",
+    "standards": [
+      "GB 27898.3"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "网日常压力；无稳压型消防气体顶压给水设备则未设",
+    "standardName": "网日常压力；无稳压型消防气体顶压给水设备则未设",
+    "description": "主要适用于水灭火系统，按预设工作方式供给消防用",
+    "standards": [
+      "GB 27898.4"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "机消防泵组）组合，提供消防用水的给水设备。",
+    "standardName": "机消防泵组）组合，提供消防用水的给水设备。",
+    "description": "机消防泵组）组合，提供消防用水的给水设备。",
+    "standards": [
+      "GB 27898.5"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "固定设置在建筑物外地下，用于消防车或机动泵向建",
+    "standardName": "固定设置在建筑物外地下，用于消防车或机动泵向建",
+    "description": "固定设置在建筑物外地下，用于消防车或机动泵向建",
+    "standards": [
+      "GB 3446"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "固定设置在建筑物墙壁上，用于消防车或机动泵向建",
+    "standardName": "固定设置在建筑物墙壁上，用于消防车或机动泵向建",
+    "description": "固定设置在建筑物墙壁上，用于消防车或机动泵向建",
+    "standards": [
+      "GB 3446"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "筑物内消防给水系统输送消防用水和其他液体灭火剂",
+    "standardName": "筑物内消防给水系统输送消防用水和其他液体灭火剂",
+    "description": "固定设置在建筑物外，可采用多种安装方式，用于消",
+    "standards": [
+      "GB 3446"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "和其他液体灭火剂的连接器具。",
+    "standardName": "和其他液体灭火剂的连接器具。",
+    "description": "适用于室内消火栓系统，包括普通型室内消火栓、旋",
+    "standards": [
+      "GB 3446"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "装在地上的消防供水（或泡沫混合液）装置。",
+    "standardName": "装在地上的消防供水（或泡沫混合液）装置。",
+    "description": "装在地上的消防供水（或泡沫混合液）装置。",
+    "standards": [
+      "GB 3445"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "装在地下的消防供水（或泡沫混合液）装置。",
+    "standardName": "装在地下的消防供水（或泡沫混合液）装置。",
+    "description": "与供水管路连接，由阀、出水口和栓体等组成，平时",
+    "standards": [
+      "GB 4452"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "地面以上的消防供水（或泡沫混合液）装置。",
+    "standardName": "地面以上的消防供水（或泡沫混合液）装置。",
+    "description": "地面以上的消防供水（或泡沫混合液）装置。",
+    "standards": [
+      "GB 4452"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "特点，多用于消防车快速上水；包括直通式、可伸缩",
+    "standardName": "特点，多用于消防车快速上水；包括直通式、可伸缩",
+    "description": "特点，多用于消防车快速上水；包括直通式、可伸缩",
+    "standards": [
+      "GB 4452"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "平时呈关闭状态并满足漏风量要求，火灾时或需要辅",
+    "standardName": "平时呈关闭状态并满足漏风量要求，火灾时或需要辅",
+    "description": "适用于工业与民用建筑、人防工程等建筑物、隧道、",
+    "standards": [
+      "XF/T 798"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "式，用于火灾时排除烟气的通风机。",
+    "standardName": "式，用于火灾时排除烟气的通风机。",
+    "description": "式，用于火灾时排除烟气的通风机。",
+    "standards": [
+      "XF 211"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "式，用于火灾时排除烟气的通风机。",
+    "standardName": "式，用于火灾时排除烟气的通风机。",
+    "description": "式，用于火灾时排除烟气的通风机。",
+    "standards": [
+      "XF 211"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "式非联动报警逃生门锁。",
+    "standardName": "式非联动报警逃生门锁。",
+    "description": "适用于活动式防火窗中，可控制活动窗开启定位，并",
+    "standards": [
+      "GB 16809"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "具有手动和火灾下热敏感元件释放关闭活动扇功能的",
+    "standardName": "具有手动和火灾下热敏感元件释放关闭活动扇功能的",
+    "description": "应用阻火器和双向应用阻火器；按适用气体介质可分",
+    "standards": [
+      "GB 5908"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "护层以提高钢结构耐火极限的涂料；按火灾防护对象",
+    "standardName": "护层以提高钢结构耐火极限的涂料；按火灾防护对象",
+    "description": "护层以提高钢结构耐火极限的涂料；按火灾防护对象",
+    "standards": [
+      "GB 12441"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  },
+  {
+    "name": "供水消防车",
+    "standardName": "供水消防车",
+    "description": "供水消防车",
+    "standards": [
+      "XF/T 478"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "主要装备车用消防泵和大容量水罐，用于向灾害现场",
+    "standardName": "主要装备车用消防泵和大容量水罐，用于向灾害现场",
+    "description": "主要装备车用消防泵和大容量水罐，用于向灾害现场",
+    "standards": [
+      "GB 7956.2"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "供水的消防车。",
+    "standardName": "供水的消防车。",
+    "description": "供水的消防车。",
+    "standards": [
+      "GB 7956.1"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "泵浦消防车",
+    "standardName": "泵浦消防车",
+    "description": "远程大流量供水系统泵浦",
+    "standards": [
+      "GB 7956.3"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "主要装备远程大流量供水系统的消防车。",
+    "standardName": "主要装备远程大流量供水系统的消防车。",
+    "description": "主要装备远程大流量供水系统的消防车。",
+    "standards": [
+      "GB 7956.7"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "设备，用于灾害现场通信联络和指挥的消防车。",
+    "standardName": "设备，用于灾害现场通信联络和指挥的消防车。",
+    "description": "设备，用于灾害现场通信联络和指挥的消防车。",
+    "standards": [
+      "GB 7956.12"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "火或供水的消防车。",
+    "standardName": "火或供水的消防车。",
+    "description": "火或供水的消防车。",
+    "standards": [
+      "GB 7956.2"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "主要装备消防泵，不配备灭火剂罐，直接利用水源灭",
+    "standardName": "主要装备消防泵，不配备灭火剂罐，直接利用水源灭",
+    "description": "主要装备直臂、曲臂、直曲臂及供液管路，顶端安装",
+    "standards": [
+      "GB 7956.1"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "中喷射灭火剂，用于扑救飞机火灾的消防车。",
+    "standardName": "中喷射灭火剂，用于扑救飞机火灾的消防车。",
+    "description": "中喷射灭火剂，用于扑救飞机火灾的消防车。",
+    "standards": [
+      "GB 7956.1"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "机场消防车",
+    "standardName": "机场消防车",
+    "description": "主要装备化学事故处置器材和装备，用于处置化学灾",
+    "standards": [
+      "GB 7956.1"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "力，用于事故现场输转危险物品的消防车。",
+    "standardName": "力，用于事故现场输转危险物品的消防车。",
+    "description": "主要装备固定照明灯、移动照明灯和发电机，用于灾",
+    "standards": [
+      "XF 39"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "主要装备固定排烟送风装置，用于排烟、通风的消防",
+    "standardName": "主要装备固定排烟送风装置，用于排烟、通风的消防",
+    "description": "主要装备固定排烟送风装置，用于排烟、通风的消防",
+    "standards": [
+      "GB 7956.16"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "洗消消防车",
+    "standardName": "洗消消防车",
+    "description": "剂，对被化学品、毒剂等污染的人员、地面、楼房、",
+    "standards": [
+      "GB 7956.17"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "火灾或向灾害现场运输人员、器材和物资的消防车。",
+    "standardName": "火灾或向灾害现场运输人员、器材和物资的消防车。",
+    "description": "主要装备轨道行驶装置，用于扑救地铁或其他轨道火",
+    "standards": [
+      "GB 7956.20"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "箱等装置，给空气呼吸器瓶充气或给气动工具提供气",
+    "standardName": "箱等装置，给空气呼吸器瓶充气或给气动工具提供气",
+    "description": "箱等装置，给空气呼吸器瓶充气或给气动工具提供气",
+    "standards": [
+      "GB 7956.1"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "源的消防车。",
+    "standardName": "源的消防车。",
+    "description": "主要装备履带行走装置，用于在复杂地形条件下扑救",
+    "standards": [
+      "XF 39"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "主要装备供液泵和液体灭火剂罐，用于输送除水以外",
+    "standardName": "主要装备供液泵和液体灭火剂罐，用于输送除水以外",
+    "description": "主要装备供液泵和液体灭火剂罐，用于输送除水以外",
+    "standards": [
+      "GB 7956.1"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "消防侦察机器人",
+    "standardName": "消防侦察机器人",
+    "description": "用于应急救援现场视频采集及危险气体、液体浓度检",
+    "standards": [
+      "XF 892"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "可以远距离控制消防炮向保护对象喷射灭火剂灭火的",
+    "standardName": "可以远距离控制消防炮向保护对象喷射灭火剂灭火的",
+    "description": "可以远距离控制消防炮向保护对象喷射灭火剂灭火的",
+    "standards": [
+      "GB 19156"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "消防水带",
+    "standardName": "消防水带",
+    "description": "供",
+    "standards": [
+      "GB 19157"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "用于消防供水系统中的卡式消防水带接口、管牙接口、 GB 12514.1",
+    "standardName": "用于消防供水系统中的卡式消防水带接口、管牙接口、 GB 12514.1",
+    "description": "用于消防供水系统中的卡式消防水带接口、管牙接口、 GB 12514.1",
+    "standards": [
+      "GB 12514.1"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "用于消防供水系统中的螺纹式消防吸水管接口、闷盖",
+    "standardName": "用于消防供水系统中的螺纹式消防吸水管接口、闷盖",
+    "description": "用于消防供水系统中的螺纹式消防吸水管接口、闷盖",
+    "standards": [
+      "GB 12514.3"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "供泡沫液消防泵（车用）",
+    "standardName": "供泡沫液消防泵（车用）",
+    "description": "供泡沫液消防泵（车用）",
+    "standards": [
+      "GB 15090"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "移动式消防储水装置",
+    "standardName": "移动式消防储水装置",
+    "description": "供",
+    "standards": [
+      "GB 6245"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "用于石化等大型火灾现场的远程、大流量供水，包含",
+    "standardName": "用于石化等大型火灾现场的远程、大流量供水，包含",
+    "description": "用于石化等大型火灾现场的远程、大流量供水，包含",
+    "standards": [
+      "XF 1204"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "消防救援人员作业过程中随身携带的用于手动破拆非",
+    "standardName": "消防救援人员作业过程中随身携带的用于手动破拆非",
+    "description": "消防救援人员作业过程中随身携带的用于手动破拆非",
+    "standards": [
+      "XF 137"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "灭火和抢险救援中破拆作业时使用的，由小型汽油机",
+    "standardName": "灭火和抢险救援中破拆作业时使用的，由小型汽油机",
+    "description": "条）、手柄、保护罩等组成，可对金属、木材、混凝",
+    "standards": [
+      "GB 32459"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "用于灾害现场排除烟气的人力移动式消防排烟机，有",
+    "standardName": "用于灾害现场排除烟气的人力移动式消防排烟机，有",
+    "description": "用于灾害现场排除烟气的人力移动式消防排烟机，有",
+    "standards": [
+      "GB 28735"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "仅供消防救援队伍紧急救援且无其他任何可替代方法",
+    "standardName": "仅供消防救援队伍紧急救援且无其他任何可替代方法",
+    "description": "仅供消防救援队伍紧急救援且无其他任何可替代方法",
+    "standards": [
+      "GB 27901"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "灭火救援时使用的，由照明系统、供电系统、升降系",
+    "standardName": "灭火救援时使用的，由照明系统、供电系统、升降系",
+    "description": "灭火救援时使用的，由照明系统、供电系统、升降系",
+    "standards": [
+      "GB 30734"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "发光，用于指引逃生路线的发光线。",
+    "standardName": "发光，用于指引逃生路线的发光线。",
+    "description": "发光，用于指引逃生路线的发光线。",
+    "standards": [
+      "GB 26755"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "消防员在灭火救援时戴在头上用于保护头部安全的盔",
+    "standardName": "消防员在灭火救援时戴在头上用于保护头部安全的盔",
+    "description": "消防员在灭火救援时戴在头上用于保护头部安全的盔",
+    "standards": [
+      "XF 3010"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "消防员在抢险救援作业时穿戴的用于对头部提供保护",
+    "standardName": "消防员在抢险救援作业时穿戴的用于对头部提供保护",
+    "description": "消防员在抢险救援作业时穿戴的用于对头部提供保护",
+    "standards": [
+      "XF 44"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "员呼吸防护装具配合使用，用于保护头部、侧面部以",
+    "standardName": "员呼吸防护装具配合使用，用于保护头部、侧面部以",
+    "description": "员呼吸防护装具配合使用，用于保护头部、侧面部以",
+    "standards": [
+      "XF 633"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "消防员在灭火救援时穿戴的、对消防员的手和腕部进",
+    "standardName": "消防员在灭火救援时穿戴的、对消防员的手和腕部进",
+    "description": "消防员在灭火救援时穿戴的、对消防员的手和腕部进",
+    "standards": [
+      "XF 869"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "消防员在抢险救援作业时用于对手和腕部提供保护的",
+    "standardName": "消防员在抢险救援作业时用于对手和腕部提供保护的",
+    "description": "消防员在抢险救援作业时用于对手和腕部提供保护的",
+    "standards": [
+      "XF 7"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "指挥员指挥灭火救援时穿着的用来对躯干、头颈、手",
+    "standardName": "指挥员指挥灭火救援时穿着的用来对躯干、头颈、手",
+    "description": "指挥员指挥灭火救援时穿着的用来对躯干、头颈、手",
+    "standards": [
+      "XF 633"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "消防员灭火救援时穿着的用来对躯干、头颈、手臂和",
+    "standardName": "消防员灭火救援时穿着的用来对躯干、头颈、手臂和",
+    "description": "消防员灭火救援时穿着的用来对躯干、头颈、手臂和",
+    "standards": [
+      "XF 10"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "消防员在抢险救援作业时穿着的专用防护服，用来对",
+    "standardName": "消防员在抢险救援作业时穿着的专用防护服，用来对",
+    "description": "消防员在抢险救援作业时穿着的专用防护服，用来对",
+    "standards": [
+      "XF 10"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "着的，用来对其全身进行隔热防护的专用防护服；包",
+    "standardName": "着的，用来对其全身进行隔热防护的专用防护服；包",
+    "description": "着的，用来对其全身进行隔热防护的专用防护服；包",
+    "standards": [
+      "XF 633"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "消防员在处置化学事件时穿着的消防员化学防护服",
+    "standardName": "消防员在处置化学事件时穿着的消防员化学防护服",
+    "description": "装，不适用于灭火、涉及放射性物品、生物制剂、液",
+    "standards": [
+      "XF 634"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "消防员防蜂服",
+    "standardName": "消防员防蜂服",
+    "description": "的防蜂服，不适用于从事灭火救援、化学处置、防疫",
+    "standards": [
+      "XF 770"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "消防员在抢险救援作业时用于对脚、踝部和小腿提供",
+    "standardName": "消防员在抢险救援作业时用于对脚、踝部和小腿提供",
+    "description": "消防员在抢险救援作业时用于对脚、踝部和小腿提供",
+    "standards": [
+      "XF 6"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "消防救援队伍在灭火救援或日常训练等常规作业环境",
+    "standardName": "消防救援队伍在灭火救援或日常训练等常规作业环境",
+    "description": "下用于登高作业、防止人员坠落伤亡的装置和设备；",
+    "standards": [
+      "XF 633"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "呼吸器官、眼睛和面部与外界染毒空气或缺氧环境完",
+    "standardName": "呼吸器官、眼睛和面部与外界染毒空气或缺氧环境完",
+    "description": "全隔离，具有自带压缩空气源供给佩戴者呼吸所用的",
+    "standards": [
+      "GB 27900"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "沫灭火剂（包括 AFFF、S 等）、蛋白类泡沫灭火剂（包",
+    "standardName": "沫灭火剂（包括 AFFF、S 等）、蛋白类泡沫灭火剂（包",
+    "description": "括 P、FP、FFFP 等），主要适用于泡沫灭火设备、泡",
+    "standards": [
+      "GB 2890"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "可扑救 F 类火灾（动植物油脂火灾）的水系灭火剂，",
+    "standardName": "可扑救 F 类火灾（动植物油脂火灾）的水系灭火剂，",
+    "description": "主要适用于厨房灭火设备等有关灭火设备。",
+    "standards": [
+      "GB 27897"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "见的产品有 ABC 干粉灭火剂、BC 干粉灭火剂，主要",
+    "standardName": "见的产品有 ABC 干粉灭火剂、BC 干粉灭火剂，主要",
+    "description": "适用于干粉灭火器和干粉灭火设备。",
+    "standards": [
+      "XF 3007"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "超细干粉灭火剂",
+    "standardName": "超细干粉灭火剂",
+    "description": "应用和全淹没方式实施灭火，主要适用于超细干粉灭",
+    "standards": [
+      "GB 4066"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "能扑灭活泼金属火灾（D 类火灾）的干粉灭火剂，主",
+    "standardName": "能扑灭活泼金属火灾（D 类火灾）的干粉灭火剂，主",
+    "description": "要适用于 D 类干粉灭火设备。",
+    "standards": [
+      "XF 578"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "或几种气体按规定比例混合而成的气体灭火剂，包括",
+    "standardName": "或几种气体按规定比例混合而成的气体灭火剂，包括",
+    "description": "IG541、IG100、IG55、IG01 等，主要适用于气体灭火",
+    "standards": [
+      "GB 25971"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "在消防通信指挥系统中，能接收火警受理系统的指令，",
+    "standardName": "在消防通信指挥系统中，能接收火警受理系统的指令，",
+    "description": "只含有氢原子、氟原子的烃类灭火剂，主要适用于气",
+    "standards": [
+      "GB 16281"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "对安装在消防移动指挥车上的有线、无线通信设备进",
+    "standardName": "对安装在消防移动指挥车上的有线、无线通信设备进",
+    "description": "对安装在消防移动指挥车上的有线、无线通信设备进",
+    "standards": [
+      "XF 545"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "消防卫星通信系统",
+    "standardName": "消防卫星通信系统",
+    "description": "通信设备、业务终端设备及供电等附属设备组成的可",
+    "standards": [
+      "XF 1086"
+    ],
+    "category": "消防救援装备",
+    "subCategory": ""
+  },
+  {
+    "name": "二、尚未制定国家标准或行业标准的消防产品",
+    "standardName": "二、尚未制定国家标准或行业标准的消防产品",
+    "description": "对产品适用范围的描述或列举",
+    "standards": [
+      "XF/T 971"
+    ],
+    "category": "建筑消防设施",
+    "subCategory": ""
+  }
+]

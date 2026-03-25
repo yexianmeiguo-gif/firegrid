@@ -1,0 +1,977 @@
+{
+  "timestamp": "2026-03-25T07:00:24.497Z",
+  "dataSources": {
+    "equipment": {
+      "total": 1354,
+      "withManufacturer": 1354,
+      "withSupplier": 1354,
+      "withNationalStandard": 0,
+      "manufacturers": [
+        {
+          "name": "蚌埠瑞祥消防机电设备有限公司",
+          "productCount": 31
+        },
+        {
+          "name": "四川川消消防车辆制造有限公司",
+          "productCount": 31
+        },
+        {
+          "name": "河南森源鸿马电动汽车有限公司",
+          "productCount": 30
+        },
+        {
+          "name": "广东盛世名门科技有限公司",
+          "productCount": 30
+        },
+        {
+          "name": "陕西银河消防科技装备股份有限公司",
+          "productCount": 27
+        },
+        {
+          "name": "北京中卓时代消防装备科技有限公司",
+          "productCount": 26
+        },
+        {
+          "name": "明光浩淼安防科技股份公司",
+          "productCount": 25
+        },
+        {
+          "name": "上海金盾特种车辆装备有限公司",
+          "productCount": 25
+        },
+        {
+          "name": "山东省天河消防车辆装备有限公司",
+          "productCount": 23
+        },
+        {
+          "name": "湖南中联重科应急装备有限公司",
+          "productCount": 23
+        },
+        {
+          "name": "安耐特消防装备有限公司",
+          "productCount": 23
+        },
+        {
+          "name": "北京华泰诺安探测技术有限公司",
+          "productCount": 22
+        },
+        {
+          "name": "上海格拉曼国际消防装备有限公司",
+          "productCount": 20
+        },
+        {
+          "name": "捷达消防科技(苏州)股份有限公司",
+          "productCount": 20
+        },
+        {
+          "name": "霍安克(杭州)安全技术有限公司",
+          "productCount": 19
+        },
+        {
+          "name": "湖北江南专用特种汽车有限公司",
+          "productCount": 19
+        },
+        {
+          "name": "徐工消防安全装备有限公司",
+          "productCount": 18
+        },
+        {
+          "name": "广东友安应急消防科技有限公司",
+          "productCount": 18
+        },
+        {
+          "name": "四川雷捷特消防科技有限公司",
+          "productCount": 18
+        },
+        {
+          "name": "江苏振翔车辆装备股份有限公司",
+          "productCount": 18
+        },
+        {
+          "name": "广东永强奥林宝国际消防汽车有限公司",
+          "productCount": 17
+        },
+        {
+          "name": "润泰救援装备科技河北有限公司",
+          "productCount": 17
+        },
+        {
+          "name": "广州新林消防设备股份有限公司",
+          "productCount": 17
+        },
+        {
+          "name": "湖北三六一一特种装备有限责任公司",
+          "productCount": 17
+        },
+        {
+          "name": "三一汽车制造有限公司",
+          "productCount": 16
+        },
+        {
+          "name": "泉州市三星消防设备有限公司",
+          "productCount": 16
+        },
+        {
+          "name": "河北威尼盛应急装备制造有限公司",
+          "productCount": 15
+        },
+        {
+          "name": "沈阳捷通消防车有限公司",
+          "productCount": 15
+        },
+        {
+          "name": "湖北省消防器材厂",
+          "productCount": 15
+        },
+        {
+          "name": "河北永生消防装备有限公司",
+          "productCount": 15
+        },
+        {
+          "name": "湖北江荆消防科技股份有限公司",
+          "productCount": 14
+        },
+        {
+          "name": "江苏江亚消防科技股份有限公司",
+          "productCount": 14
+        },
+        {
+          "name": "程力专用汽车股份有限公司",
+          "productCount": 13
+        },
+        {
+          "name": "济南格茵机械设备有限公司",
+          "productCount": 13
+        },
+        {
+          "name": "湖北博利特种汽车装备股份有限公司",
+          "productCount": 13
+        },
+        {
+          "name": "牡丹江森田特种车辆改装有限责任公司",
+          "productCount": 13
+        },
+        {
+          "name": "湖北威盾科技有限公司",
+          "productCount": 13
+        },
+        {
+          "name": "沧州海固安全防护科技有限公司",
+          "productCount": 12
+        },
+        {
+          "name": "迅捷安应急装备科技(湖北)有限公司",
+          "productCount": 12
+        },
+        {
+          "name": "江苏沃克莱消防车辆有限公司",
+          "productCount": 12
+        },
+        {
+          "name": "北京天汇智达科技发展有限公司",
+          "productCount": 12
+        },
+        {
+          "name": "启航汽车有限公司",
+          "productCount": 12
+        },
+        {
+          "name": "鞍山衡业专用汽车制造有限公司",
+          "productCount": 12
+        },
+        {
+          "name": "江苏安奇正特种车辆装备有限公司",
+          "productCount": 12
+        },
+        {
+          "name": "河南联纵消防科技有限公司",
+          "productCount": 12
+        },
+        {
+          "name": "重庆迪马工业有限责任公司",
+          "productCount": 11
+        },
+        {
+          "name": "南京雷沃特种车辆有限公司",
+          "productCount": 11
+        },
+        {
+          "name": "重庆国飞通用航空设备制造有限公司",
+          "productCount": 11
+        },
+        {
+          "name": "湖北新东日专用汽车有限公司",
+          "productCount": 10
+        },
+        {
+          "name": "广东东君照明有限公司",
+          "productCount": 10
+        },
+        {
+          "name": "北京国泰怡安电子有限公司",
+          "productCount": 10
+        },
+        {
+          "name": "安徽海马特救援科技股份公司",
+          "productCount": 9
+        },
+        {
+          "name": "中国重汽集团泰安五岳专用汽车有限公司",
+          "productCount": 9
+        },
+        {
+          "name": "西奈克消防车辆制造有限公司",
+          "productCount": 9
+        },
+        {
+          "name": "北京元亨利业科技有限公司",
+          "productCount": 9
+        },
+        {
+          "name": "路亚科消防车辆制造有限公司",
+          "productCount": 9
+        },
+        {
+          "name": "杭州佳伯尔消防科技有限公司",
+          "productCount": 9
+        },
+        {
+          "name": "宇通客车股份有限公司",
+          "productCount": 9
+        },
+        {
+          "name": "楚胜汽车集团有限公司",
+          "productCount": 9
+        },
+        {
+          "name": "江苏河马自动化设备有限公司",
+          "productCount": 9
+        },
+        {
+          "name": "广州海安消防设备有限公司",
+          "productCount": 9
+        },
+        {
+          "name": "江苏锁龙消防科技股份有限公司",
+          "productCount": 9
+        },
+        {
+          "name": "深之蓝海洋科技股份有限公司",
+          "productCount": 9
+        },
+        {
+          "name": "山东易阳消防车辆装备有限公司",
+          "productCount": 8
+        },
+        {
+          "name": "广州市易恒通信科技有限公司",
+          "productCount": 8
+        },
+        {
+          "name": "湖北凯力专用汽车有限公司",
+          "productCount": 8
+        },
+        {
+          "name": "广州泽保智能科技有限公司",
+          "productCount": 8
+        },
+        {
+          "name": "江苏汇远消防科技有限公司",
+          "productCount": 8
+        },
+        {
+          "name": "长沙普洛电气设备有限公司",
+          "productCount": 7
+        },
+        {
+          "name": "中汽北消(北京)应急装备科技有限公司",
+          "productCount": 7
+        },
+        {
+          "name": "天长市安康消防设备有限公司",
+          "productCount": 7
+        },
+        {
+          "name": "莱州银星机械装备有限公司",
+          "productCount": 7
+        },
+        {
+          "name": "中凯消防装备科技(长春)有限公司",
+          "productCount": 7
+        },
+        {
+          "name": "安科瑞电气股份有限公司",
+          "productCount": 6
+        },
+        {
+          "name": "湖北瑞力汽车有限公司",
+          "productCount": 6
+        },
+        {
+          "name": "五湖消防安全科技泰州有限公司",
+          "productCount": 6
+        },
+        {
+          "name": "威海广泰空港设备股份有限公司",
+          "productCount": 6
+        },
+        {
+          "name": "江西玖发专用车有限公司",
+          "productCount": 6
+        },
+        {
+          "name": "玉柴润威发动机有限公司",
+          "productCount": 6
+        },
+        {
+          "name": "河北旭峰机电科技有限公司",
+          "productCount": 6
+        },
+        {
+          "name": "江西清华实业有限公司",
+          "productCount": 6
+        },
+        {
+          "name": "北京汉邦唐科技有限公司",
+          "productCount": 6
+        },
+        {
+          "name": "Senci Mechanical & Electrical Co., Ltd.",
+          "productCount": 5
+        },
+        {
+          "name": "安徽茗达专用汽车制造有限公司",
+          "productCount": 5
+        },
+        {
+          "name": "广州保得威尔电子科技股份有限公司",
+          "productCount": 5
+        },
+        {
+          "name": "",
+          "productCount": 5
+        },
+        {
+          "name": "北创(山东)专用汽车制造有限公司",
+          "productCount": 5
+        },
+        {
+          "name": "青岛立安安全科技有限公司",
+          "productCount": 5
+        },
+        {
+          "name": "湖北三六一一应急装备有限公司",
+          "productCount": 5
+        },
+        {
+          "name": "ASAT",
+          "productCount": 5
+        },
+        {
+          "name": "浙江丰瑞晨消防装备有限公司",
+          "productCount": 5
+        },
+        {
+          "name": "广东省援达应急设备有限公司",
+          "productCount": 5
+        },
+        {
+          "name": "安阳猎鹰消防科技有限公司",
+          "productCount": 5
+        },
+        {
+          "name": "山西耀邦环境装备工程有限公司",
+          "productCount": 4
+        },
+        {
+          "name": "成都时代星光科技有限公司",
+          "productCount": 4
+        },
+        {
+          "name": "广西汽车集团有限公司",
+          "productCount": 4
+        },
+        {
+          "name": "济宁中运环境科技股份有限公司",
+          "productCount": 4
+        },
+        {
+          "name": "太原重工股份有限公司",
+          "productCount": 4
+        },
+        {
+          "name": "江西江铃汽车集团改装车股份有限公司",
+          "productCount": 4
+        },
+        {
+          "name": "江苏明杰应急救援装备有限公司",
+          "productCount": 4
+        },
+        {
+          "name": "武汉客车制造股份有限公司",
+          "productCount": 4
+        },
+        {
+          "name": "黄骅市雪龙森林防火装备有限公司",
+          "productCount": 4
+        },
+        {
+          "name": "湖北聚力汽车技术股份有限公司",
+          "productCount": 4
+        },
+        {
+          "name": "北京卓翼智能科技有限公司",
+          "productCount": 4
+        },
+        {
+          "name": "福建侨龙应急装备股份有限公司",
+          "productCount": 4
+        },
+        {
+          "name": "江西江铃集团晶马汽车有限公司",
+          "productCount": 4
+        },
+        {
+          "name": "布莱迪公司",
+          "productCount": 4
+        },
+        {
+          "name": "山东吉孚消防科技有限公司",
+          "productCount": 4
+        },
+        {
+          "name": "丰祺环境科技(广州)有限公司",
+          "productCount": 4
+        },
+        {
+          "name": "江西致远消防科技有限公司",
+          "productCount": 4
+        },
+        {
+          "name": "重庆金冠汽车制造股份有限公司",
+          "productCount": 4
+        },
+        {
+          "name": "河南鸿马实业有限公司",
+          "productCount": 3
+        },
+        {
+          "name": "湖北先行专用汽车有限公司",
+          "productCount": 3
+        },
+        {
+          "name": "程力重工股份有限公司",
+          "productCount": 3
+        },
+        {
+          "name": "广州市济援专用汽车有限公司",
+          "productCount": 3
+        },
+        {
+          "name": "广州唯邦特种车辆有限公司",
+          "productCount": 3
+        },
+        {
+          "name": "深圳东风(十堰)汽车有限公司",
+          "productCount": 3
+        },
+        {
+          "name": "诸城市新东方北重机械制造有限公司",
+          "productCount": 2
+        },
+        {
+          "name": "德尔格",
+          "productCount": 2
+        },
+        {
+          "name": "中联重科",
+          "productCount": 2
+        },
+        {
+          "name": "荣盛兴城(兴隆)新能源发展有限公司",
+          "productCount": 2
+        },
+        {
+          "name": "湖北襄消汽车制造有限公司",
+          "productCount": 2
+        },
+        {
+          "name": "厦门金龙联合汽车工业有限公司",
+          "productCount": 2
+        },
+        {
+          "name": "中振汉江装备科技有限公司",
+          "productCount": 2
+        },
+        {
+          "name": "上海航空特种车辆有限责任公司",
+          "productCount": 2
+        },
+        {
+          "name": "湖北神百专用汽车有限公司",
+          "productCount": 2
+        },
+        {
+          "name": "河南高远公路养护设备股份有限公司",
+          "productCount": 2
+        },
+        {
+          "name": "徐州中欧科技有限公司",
+          "productCount": 2
+        },
+        {
+          "name": "上海华锐救援装备有限公司",
+          "productCount": 2
+        },
+        {
+          "name": "湖北新中绿专用汽车有限公司",
+          "productCount": 2
+        },
+        {
+          "name": "唐山浩航特种车制造有限公司",
+          "productCount": 2
+        },
+        {
+          "name": "奥拓福特种车辆制造有限公司",
+          "productCount": 2
+        },
+        {
+          "name": "湖南威平科技发展有限公司",
+          "productCount": 2
+        },
+        {
+          "name": "湖北一专汽车股份有限公司",
+          "productCount": 2
+        },
+        {
+          "name": "湖北震序车船科技股份有限公司",
+          "productCount": 2
+        },
+        {
+          "name": "北京豪沃尔科技发展股份有限公司",
+          "productCount": 2
+        },
+        {
+          "name": "新航达(重庆)智能汽车有限公司",
+          "productCount": 2
+        },
+        {
+          "name": "鹤壁天海电子信息系统有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "天津天元博睿汽车制造有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "贝德科技集团有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "长沙迪沃机械科技有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "东风",
+          "productCount": 1
+        },
+        {
+          "name": "江西鼎峰装备科技有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "厦门厦工机械股份有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "北京安氧特科技有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "LUKAS",
+          "productCount": 1
+        },
+        {
+          "name": "东莞市永强汽车制造有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "山东凯马汽车制造有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "中国重汽集团济南卡车股份有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "魏桥智行(黄骅)专用车有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "江苏莱普特安防科技有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "森源鸿马",
+          "productCount": 1
+        },
+        {
+          "name": "北京安德祥瑞安全装备有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "热景（廊坊）生物技术有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "庆铃汽车股份有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "陕西汽车集团股份有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "福建北峰通信科技股份有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "河南飞龙工程机械制造有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "河南海威英达重工有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "山东卫士汽车制造有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "安徽阿莫斯流体技术有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "南京高立特种装备有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "北京高德利华科技有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "中国重型汽车集团有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "龙岩畅丰专用汽车有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "国安达安全技术(华安)有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "湖北专力汽车科技有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "江苏盛美达安全设备科技有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "河南星辰物联科技有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "青岛信光游艇有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "长春广福特种车辆有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "湖北宏宇专用汽车有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "江苏天地造新材料科技有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "重庆军通汽车有限责任公司",
+          "productCount": 1
+        },
+        {
+          "name": "江苏优尼科工业消防有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "襄鼎汽车有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "蚌埠依爱消防电子有限责任公司",
+          "productCount": 1
+        },
+        {
+          "name": "日照威盾安全设备有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "江西鹏宇管业科技有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "中国第一汽车集团有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "辽宁陆平机器股份有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "山河星航实业股份有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "九江消防装备有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "新兴重工湖北三六一一机械有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "桂林系留航空科技有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "重庆南方迪马专用车股份有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "江苏九鼎特种纤维有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "济南萨博特种汽车有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "上海震旦施密茨消防装备有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "漳州科晖专用汽车制造有限公司",
+          "productCount": 1
+        },
+        {
+          "name": "大疆",
+          "productCount": 1
+        }
+      ]
+    },
+    "exhibitionSuppliers": {
+      "total": 1163,
+      "withPhone": 892,
+      "withEmail": 1012,
+      "withWebsite": 885
+    },
+    "crawledSuppliers": {
+      "total": 736,
+      "success": 299,
+      "withProducts": 349,
+      "totalProducts": 2992
+    },
+    "duplicates": {
+      "exactMatches": 3,
+      "fuzzyMatches": 1214,
+      "examples": [
+        {
+          "manufacturer": "陕西银河消防科技装备股份有限公司",
+          "exhibition": "陕西银河消防科技装备股份有限公司                           E1-09"
+        },
+        {
+          "manufacturer": "浙江丰瑞晨消防装备有限公司",
+          "exhibition": "浙江丰瑞晨消防装备有限公司                                                                   E3-117/118"
+        },
+        {
+          "manufacturer": "北京高德利华科技有限公司",
+          "exhibition": "北京高德利华科技有限公司                                 W1-15"
+        },
+        {
+          "manufacturer": "玉柴润威发动机有限公司",
+          "exhibition": "玉柴润威发动机有限公司                                    W3-92/93"
+        },
+        {
+          "manufacturer": "河北旭峰机电科技有限公司",
+          "exhibition": "河北旭峰机电科技有限公司                                            W2-83/84/87/88"
+        },
+        {
+          "manufacturer": "江苏明杰应急救援装备有限公司",
+          "exhibition": "江苏明杰应急救援装备有限公司                             W4-12B Jiangsu Mingjie Emergency Rescue Equipment Co.,Ltd."
+        },
+        {
+          "manufacturer": "湖北瑞力汽车有限公司",
+          "exhibition": "湖北瑞力汽车有限公司                                     OD3-06"
+        },
+        {
+          "manufacturer": "安科瑞电气股份有限公司",
+          "exhibition": "安科瑞电气股份有限公司"
+        },
+        {
+          "manufacturer": "陕西汽车集团股份有限公司",
+          "exhibition": "陕西汽车集团股份有限公司                               OD3-02C"
+        },
+        {
+          "manufacturer": "湖北博利特种汽车装备股份有限公司",
+          "exhibition": "湖北博利特种汽车装备股份有限公司                          E1-03"
+        },
+        {
+          "manufacturer": "北京豪沃尔科技发展股份有限公司",
+          "exhibition": "北京豪沃尔科技发展股份有限公司                             W1 -86"
+        },
+        {
+          "manufacturer": "北京安德祥瑞安全装备有限公司",
+          "exhibition": "北京安德祥瑞安全装备有限公司                           W3-01-02"
+        },
+        {
+          "manufacturer": "莱州银星机械装备有限公司",
+          "exhibition": "莱州银星机械装备有限公司                                     W4-183"
+        },
+        {
+          "manufacturer": "江苏汇远消防科技有限公司",
+          "exhibition": "江苏汇远消防科技有限公司                                  W2-77"
+        },
+        {
+          "manufacturer": "徐工消防安全装备有限公司",
+          "exhibition": "徐工消防安全装备有限公司                                 OD1-02 XCMG Fire-Fighting Safety Equipment Co.,Ltd."
+        },
+        {
+          "manufacturer": "湖北江荆消防科技股份有限公司",
+          "exhibition": "湖北江荆消防科技股份有限公司                              W2-30"
+        },
+        {
+          "manufacturer": "魏桥智行(黄骅)专用车有限公司",
+          "exhibition": "魏桥智行(黄骅)专用车有限公司                        OD5-28B"
+        },
+        {
+          "manufacturer": "杭州佳伯尔消防科技有限公司",
+          "exhibition": "杭州佳伯尔消防科技有限公司                           W1-152/153 Hangzhou Jiaber Fire Protection Technology Co.,LTD"
+        },
+        {
+          "manufacturer": "",
+          "exhibition": "爱欧科技(天津)有限公司                          W1-138/139 AiOu  Technology(Tianjin)Co.,Ltd."
+        },
+        {
+          "manufacturer": "",
+          "exhibition": "希 尔 - 阿 密 龙 - 阿 瓦 格                              E3-72"
+        }
+      ]
+    },
+    "companyTypes": {
+      "likelyManufacturers": 105,
+      "likelySuppliers": 0,
+      "unclear": 86
+    }
+  },
+  "qualityIssues": [],
+  "duplicates": [
+    {
+      "manufacturer": "陕西银河消防科技装备股份有限公司",
+      "exhibition": "陕西银河消防科技装备股份有限公司                           E1-09"
+    },
+    {
+      "manufacturer": "浙江丰瑞晨消防装备有限公司",
+      "exhibition": "浙江丰瑞晨消防装备有限公司                                                                   E3-117/118"
+    },
+    {
+      "manufacturer": "北京高德利华科技有限公司",
+      "exhibition": "北京高德利华科技有限公司                                 W1-15"
+    },
+    {
+      "manufacturer": "玉柴润威发动机有限公司",
+      "exhibition": "玉柴润威发动机有限公司                                    W3-92/93"
+    },
+    {
+      "manufacturer": "河北旭峰机电科技有限公司",
+      "exhibition": "河北旭峰机电科技有限公司                                            W2-83/84/87/88"
+    },
+    {
+      "manufacturer": "江苏明杰应急救援装备有限公司",
+      "exhibition": "江苏明杰应急救援装备有限公司                             W4-12B Jiangsu Mingjie Emergency Rescue Equipment Co.,Ltd."
+    },
+    {
+      "manufacturer": "湖北瑞力汽车有限公司",
+      "exhibition": "湖北瑞力汽车有限公司                                     OD3-06"
+    },
+    {
+      "manufacturer": "安科瑞电气股份有限公司",
+      "exhibition": "安科瑞电气股份有限公司"
+    },
+    {
+      "manufacturer": "陕西汽车集团股份有限公司",
+      "exhibition": "陕西汽车集团股份有限公司                               OD3-02C"
+    },
+    {
+      "manufacturer": "湖北博利特种汽车装备股份有限公司",
+      "exhibition": "湖北博利特种汽车装备股份有限公司                          E1-03"
+    },
+    {
+      "manufacturer": "北京豪沃尔科技发展股份有限公司",
+      "exhibition": "北京豪沃尔科技发展股份有限公司                             W1 -86"
+    },
+    {
+      "manufacturer": "北京安德祥瑞安全装备有限公司",
+      "exhibition": "北京安德祥瑞安全装备有限公司                           W3-01-02"
+    },
+    {
+      "manufacturer": "莱州银星机械装备有限公司",
+      "exhibition": "莱州银星机械装备有限公司                                     W4-183"
+    },
+    {
+      "manufacturer": "江苏汇远消防科技有限公司",
+      "exhibition": "江苏汇远消防科技有限公司                                  W2-77"
+    },
+    {
+      "manufacturer": "徐工消防安全装备有限公司",
+      "exhibition": "徐工消防安全装备有限公司                                 OD1-02 XCMG Fire-Fighting Safety Equipment Co.,Ltd."
+    },
+    {
+      "manufacturer": "湖北江荆消防科技股份有限公司",
+      "exhibition": "湖北江荆消防科技股份有限公司                              W2-30"
+    },
+    {
+      "manufacturer": "魏桥智行(黄骅)专用车有限公司",
+      "exhibition": "魏桥智行(黄骅)专用车有限公司                        OD5-28B"
+    },
+    {
+      "manufacturer": "杭州佳伯尔消防科技有限公司",
+      "exhibition": "杭州佳伯尔消防科技有限公司                           W1-152/153 Hangzhou Jiaber Fire Protection Technology Co.,LTD"
+    },
+    {
+      "manufacturer": "",
+      "exhibition": "爱欧科技(天津)有限公司                          W1-138/139 AiOu  Technology(Tianjin)Co.,Ltd."
+    },
+    {
+      "manufacturer": "",
+      "exhibition": "希 尔 - 阿 密 龙 - 阿 瓦 格                              E3-72"
+    }
+  ],
+  "recommendations": [
+    "✅ 发现 3 家公司既是制造商又是展会供应商，应合并为同一条记录",
+    "⚠️  发现 1214 对模糊匹配，需要人工审核确认是否为同一公司",
+    "✅ 建议创建统一 companies 表，包含 1354 家公司",
+    "✅ 为 1354 个产品建立与供应商的关联关系",
+    "✅ 展会供应商（1163 家）标记为 partnership_status = 'exhibition'",
+    "✅ 爬取供应商（299 家）可补充产品详情",
+    "\n📋 建议执行顺序:",
+    "   1. 去重合并：处理 3 个精确重复",
+    "   2. 模糊匹配：人工审核 1214 对相似公司",
+    "   3. 类型标注：区分制造商（105）和供应商",
+    "   4. 导入数据：创建 companies 表并导入所有公司",
+    "   5. 建立关联：创建 equipment_suppliers 多对多关联表"
+  ]
+}

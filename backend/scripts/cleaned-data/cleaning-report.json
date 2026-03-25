@@ -1,0 +1,16 @@
+{
+  "timestamp": "2026-03-25T07:04:30.321Z",
+  "summary": {
+    "totalCompanies": 1258,
+    "manufacturers": 958,
+    "suppliers": 351,
+    "both": 51,
+    "withContact": 1114,
+    "withWebsite": 885
+  },
+  "issues": {
+    "duplicates": 96,
+    "fuzzyMatches": 5,
+    "unclearType": 0
+  }
+}

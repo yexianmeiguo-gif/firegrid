@@ -1,0 +1,704 @@
+{
+  "fuzzyMatches": [
+    {
+      "company1": "重庆迪马工业有限责任公司",
+      "company2": "重庆迪马工业有限责任公司E1-04",
+      "similarity": 0.7058823529411765
+    },
+    {
+      "company1": "北京元亨利业科技有限公司",
+      "company2": "北京元亨利业科技有限公司W1-35",
+      "similarity": 0.7058823529411765
+    },
+    {
+      "company1": "北京豪沃尔科技发展股份有限公司",
+      "company2": "北京豪沃尔科技发展股份有限公司W1-86",
+      "similarity": 0.75
+    },
+    {
+      "company1": "宇通客车股份有限公司",
+      "company2": "宇通客车股份有限公司专用车分公司",
+      "similarity": 0.625
+    },
+    {
+      "company1": "鸿安消防设备有限公司",
+      "company2": "泰州鸿安消防设备有限公司",
+      "similarity": 0.8333333333333334
+    }
+  ],
+  "duplicates": [
+    {
+      "name": "安徽阿莫斯流体技术有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "安耐特消防装备有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "安阳猎鹰消防科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "北京安氧特科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "北京高德利华科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "北京国泰怡安电子有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "北京汉邦唐科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "北京华泰诺安探测技术有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "北京卓翼智能科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "蚌埠依爱消防电子有限责任公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "蚌埠瑞祥消防机电设备有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "沧州海固安全防护科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "长沙迪沃机械科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "长沙普洛电气设备有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "成都时代星光科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "程力专用汽车股份有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "重庆国飞通用航空设备制造有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "楚胜汽车集团有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "深之蓝海洋科技股份有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "丰祺环境科技(广州)有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "福建北峰通信科技股份有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "福建侨龙应急装备股份有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "广东盛世名门科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "广东友安应急消防科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "广东省援达应急设备有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "广州海安消防设备有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "广州市济援专用汽车有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "广州新林消防设备股份有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "广州市易恒通信科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "广州泽保智能科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "桂林系留航空科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "杭州佳伯尔消防科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "河北威尼盛应急装备制造有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "河北旭峰机电科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "河北永生消防装备有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "河南联纵消防科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "河南森源鸿马电动汽车有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "河南星辰物联科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "湖北三六一一特种装备有限责任公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "湖北博利特种汽车装备股份有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "湖北江荆消防科技股份有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "湖北江南专用特种汽车有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "湖北凯力专用汽车有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "湖北瑞力汽车有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "湖北威盾科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "湖北襄消汽车制造有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "湖北新东日专用汽车有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "湖南威平科技发展有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "霍安克(杭州)安全技术有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "江苏河马自动化设备有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "江苏九鼎特种纤维有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "江苏莱普特安防科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "江苏明杰应急救援装备有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "江苏盛美达安全设备科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "江苏锁龙消防科技股份有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "江苏天地造新材料科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "江苏优尼科工业消防有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "江苏江亚消防科技股份有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "江西鼎峰装备科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "江西鹏宇管业科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "江西致远消防科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "捷达消防科技(苏州)股份有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "济南格茵机械设备有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "济宁中运环境科技股份有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "九江消防装备有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "莱州银星机械装备有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "明光浩淼安防科技股份公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "南京雷沃特种车辆有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "青岛信光游艇有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "泉州市三星消防设备有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "玉柴润威发动机有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "日照威盾安全设备有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "三一汽车制造有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "陕西汽车集团股份有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "陕西银河消防科技装备股份有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "山河星航实业股份有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "威海广泰空港设备股份有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "中汽北消(北京)应急装备科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "北京安德祥瑞安全装备有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "北京天汇智达科技发展有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "贝德科技集团有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "五湖消防安全科技泰州有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "广东东君照明有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "广州保得威尔电子科技股份有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "广州唯邦特种车辆有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "湖南中联重科应急装备有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "江苏汇远消防科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "上海格拉曼国际消防装备有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "四川雷捷特消防科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "魏桥智行(黄骅)专用车有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "安科瑞电气股份有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "安徽海马特救援科技股份公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "中凯消防装备科技(长春)有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "江西清华实业有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "青岛立安安全科技有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    },
+    {
+      "name": "浙江丰瑞晨消防装备有限公司",
+      "sources": [
+        "manufacturer",
+        "exhibition"
+      ]
+    }
+  ],
+  "unclearType": []
+}

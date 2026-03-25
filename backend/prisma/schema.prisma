@@ -89,6 +89,10 @@ model Equipment {
   subCategory     String?   @map("sub_category") // 子类别
   standards       String[]  // 合规标准
   
+  // 新增AI相关字段
+  applications    String[]  @default([]) // 适用场景
+  scenarioTags    String[]  @default([]) @map("scenario_tags") // 实战标签
+
   // 结构化参数 (JSONB)
   parameters      Json      @default("{}") @map("parameters")
   
@@ -100,16 +104,37 @@ model Equipment {
   supplierId      String    @map("supplier_id")
   supplier        SupplierProfile @relation(fields: [supplierId], references: [id])
   
-  // 评价关联
+  // 关联
   reviews         Review[]
-  
-  // 收藏关联
   favorites       Favorite[]
+  caseStudies     CaseStudy[] // 关联实战案例
   
   createdAt       DateTime  @default(now()) @map("created_at")
   updatedAt       DateTime  @updatedAt @map("updated_at")
   
   @@map("equipment")
+}
+
+// 新增：装备实战案例表
+model CaseStudy {
+  id            String    @id @default(uuid())
+  title         String    // 案例标题
+  equipmentId   String    @map("equipment_id")
+  equipment     Equipment @relation(fields: [equipmentId], references: [id], onDelete: Cascade)
+  
+  // 案例详情
+  content       String    @db.Text
+  images        String[]  @default([])
+  videoUrl      String?   @map("video_url")
+  
+  // 信息来源
+  author        String?   // 作者/单位
+  publishDate   DateTime  @default(now()) @map("publish_date")
+  
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+  
+  @@map("case_studies")
 }
 
 // 评价表

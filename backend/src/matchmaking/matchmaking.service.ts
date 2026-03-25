@@ -14,7 +14,8 @@ import {
 
 // 匹配结果接口
 export interface MatchResult {
-  offer: SupplyOffer;
+  demand?: ProcurementDemand;  // 为供应商匹配需求时使用
+  offer?: SupplyOffer;          // 为需求匹配供应时使用
   score: number;
   reasons: string[];
 }
