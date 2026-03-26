@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,429 +7,458 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// 用户表 - 基础信息
 model User {
-  id            String    @id @default(uuid())
-  openId        String    @unique @map("open_id") // 微信OpenID
-  phone         String?   @unique // 手机号
-  nickname      String?   // 昵称
-  avatar        String?   // 头像URL
-  role          UserRole  @default(GUEST) // 角色
-  status        UserStatus @default(ACTIVE) // 状态
-  createdAt     DateTime  @default(now()) @map("created_at")
-  updatedAt     DateTime  @updatedAt @map("updated_at")
-  
-  // 关联
-  firefighterProfile  FirefighterProfile?
-  supplierProfile     SupplierProfile?
-  reviews             Review[]
-  aiPromptLogs        AIPromptLog[]
-  favorites           Favorite[]
-  
+  id                 String              @id @default(uuid())
+  openId             String              @unique @map("open_id")
+  phone              String?             @unique
+  nickname           String?
+  avatar             String?
+  role               UserRole            @default(GUEST)
+  status             UserStatus          @default(ACTIVE)
+  createdAt          DateTime            @default(now()) @map("created_at")
+  updatedAt          DateTime            @updatedAt @map("updated_at")
+  aiPromptLogs       AIPromptLog[]
+  favorites          Favorite[]
+  firefighterProfile FirefighterProfile?
+  inquiries          inquiries[]
+  reviews            Review[]
+  supplierProfile    SupplierProfile?
+
   @@map("users")
 }
 
-// 消防核心用户档案 (C/G端)
 model FirefighterProfile {
-  id              String    @id @default(uuid())
-  userId          String    @unique @map("user_id")
-  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  
-  // 职业信息
-  rank            String?   // 职级
-  department      String?   // 部门
-  region          String?   // 所在地区
-  certification   String?   // 认证信息
-  
-  // 偏好设置
-  favoriteCategories String[] @default([]) @map("favorite_categories") // 关注的器材类目
-  trainingHours   Int       @default(0) @map("training_hours") // 培训时长
-  
-  createdAt       DateTime  @default(now()) @map("created_at")
-  updatedAt       DateTime  @updatedAt @map("updated_at")
-  
+  id                 String   @id @default(uuid())
+  userId             String   @unique @map("user_id")
+  rank               String?
+  department         String?
+  region             String?
+  certification      String?
+  favoriteCategories String[] @default([]) @map("favorite_categories")
+  trainingHours      Int      @default(0) @map("training_hours")
+  createdAt          DateTime @default(now()) @map("created_at")
+  updatedAt          DateTime @updatedAt @map("updated_at")
+  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   @@map("firefighter_profiles")
 }
 
-// 供应商档案 (B端)
 model SupplierProfile {
-  id              String    @id @default(uuid())
-  userId          String    @unique @map("user_id")
-  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  
-  // 企业信息
-  companyName     String    @map("company_name")
-  businessLicense String?   @map("business_license") // 营业执照
-  mainCategories  String[]  @default([]) @map("main_categories") // 主营类目
-  contactPhone    String?   @map("contact_phone")
-  contactEmail    String?   @map("contact_email")
-  address         String?   // 地址
-  
-  // 订阅等级
+  id              String           @id @default(uuid())
+  userId          String           @unique @map("user_id")
+  companyName     String           @map("company_name")
+  businessLicense String?          @map("business_license")
+  mainCategories  String[]         @default([]) @map("main_categories")
+  contactPhone    String?          @map("contact_phone")
+  contactEmail    String?          @map("contact_email")
+  address         String?
   subscription    SubscriptionTier @default(FREE) @map("subscription_tier")
-  
-  // 产品关联
+  createdAt       DateTime         @default(now()) @map("created_at")
+  updatedAt       DateTime         @updatedAt @map("updated_at")
   products        Equipment[]
-  
-  createdAt       DateTime  @default(now()) @map("created_at")
-  updatedAt       DateTime  @updatedAt @map("updated_at")
-  
+  user            User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   @@map("supplier_profiles")
 }
 
-// 装备表
 model Equipment {
-  id              String    @id @default(uuid())
-  name            String    // 装备名称
-  manufacturer    String    // 制造商
-  category        String    // 类别
-  subCategory     String?   @map("sub_category") // 子类别
-  standards       String[]  // 合规标准
-  
-  // 新增AI相关字段
-  applications    String[]  @default([]) // 适用场景
-  scenarioTags    String[]  @default([]) @map("scenario_tags") // 实战标签
+  id                                                 String                @id @default(uuid())
+  name                                               String
+  manufacturer                                       String
+  category                                           String
+  subCategory                                        String?               @map("sub_category")
+  standards                                          String[]
+  applications                                       String[]              @default([])
+  scenarioTags                                       String[]              @default([]) @map("scenario_tags")
+  parameters                                         Json                  @default("{}") @map("parameters")
+  description                                        String?
+  images                                             String[]              @default([])
+  supplierId                                         String?               @map("supplier_id")
+  createdAt                                          DateTime              @default(now()) @map("created_at")
+  updatedAt                                          DateTime              @updatedAt @map("updated_at")
+  manufacturer_id                                    String?               @db.Uuid
+  primary_supplier_id                                String?               @db.Uuid
+  caseStudies                                        CaseStudy[]
+  companies_equipment_manufacturer_idTocompanies     companies?            @relation("equipment_manufacturer_idTocompanies", fields: [manufacturer_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  companies_equipment_primary_supplier_idTocompanies companies?            @relation("equipment_primary_supplier_idTocompanies", fields: [primary_supplier_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  supplier                                           SupplierProfile?      @relation(fields: [supplierId], references: [id], onDelete: Restrict)
+  equipment_suppliers                                equipment_suppliers[]
+  favorites                                          Favorite[]
+  inquiries                                          inquiries[]
+  reviews                                            Review[]
 
-  // 结构化参数 (JSONB)
-  parameters      Json      @default("{}") @map("parameters")
-  
-  // 描述和图片
-  description     String?   @db.Text
-  images          String[]  @default([])
-  
-  // 供应商关联
-  supplierId      String    @map("supplier_id")
-  supplier        SupplierProfile @relation(fields: [supplierId], references: [id])
-  
-  // 关联
-  reviews         Review[]
-  favorites       Favorite[]
-  caseStudies     CaseStudy[] // 关联实战案例
-  
-  createdAt       DateTime  @default(now()) @map("created_at")
-  updatedAt       DateTime  @updatedAt @map("updated_at")
-  
+  @@index([manufacturer_id], map: "idx_equipment_manufacturer")
+  @@index([primary_supplier_id], map: "idx_equipment_primary_supplier")
   @@map("equipment")
 }
 
-// 新增：装备实战案例表
 model CaseStudy {
-  id            String    @id @default(uuid())
-  title         String    // 案例标题
-  equipmentId   String    @map("equipment_id")
-  equipment     Equipment @relation(fields: [equipmentId], references: [id], onDelete: Cascade)
-  
-  // 案例详情
-  content       String    @db.Text
-  images        String[]  @default([])
-  videoUrl      String?   @map("video_url")
-  
-  // 信息来源
-  author        String?   // 作者/单位
-  publishDate   DateTime  @default(now()) @map("publish_date")
-  
-  createdAt     DateTime  @default(now()) @map("created_at")
-  updatedAt     DateTime  @updatedAt @map("updated_at")
-  
+  id          String    @id @default(uuid())
+  title       String
+  equipmentId String    @map("equipment_id")
+  content     String
+  images      String[]  @default([])
+  videoUrl    String?   @map("video_url")
+  author      String?
+  publishDate DateTime  @default(now()) @map("publish_date")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  equipment   Equipment @relation(fields: [equipmentId], references: [id], onDelete: Cascade)
+
   @@map("case_studies")
 }
 
-// 评价表
 model Review {
-  id            String    @id @default(uuid())
-  equipmentId   String    @map("equipment_id")
-  equipment     Equipment @relation(fields: [equipmentId], references: [id], onDelete: Cascade)
-  
-  userId        String    @map("user_id")
-  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  rating        Int       // 评分 1-5
-  content       String?   @db.Text
-  
-  createdAt     DateTime  @default(now()) @map("created_at")
-  
+  id          String    @id @default(uuid())
+  equipmentId String    @map("equipment_id")
+  userId      String    @map("user_id")
+  rating      Int
+  content     String?
+  createdAt   DateTime  @default(now()) @map("created_at")
+  equipment   Equipment @relation(fields: [equipmentId], references: [id], onDelete: Cascade)
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   @@map("reviews")
 }
 
-// 收藏表
 model Favorite {
-  id            String    @id @default(uuid())
-  userId        String    @map("user_id")
-  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  
-  equipmentId   String    @map("equipment_id")
-  equipment     Equipment @relation(fields: [equipmentId], references: [id], onDelete: Cascade)
-  
-  createdAt     DateTime  @default(now()) @map("created_at")
-  
+  id          String    @id @default(uuid())
+  userId      String    @map("user_id")
+  equipmentId String    @map("equipment_id")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  equipment   Equipment @relation(fields: [equipmentId], references: [id], onDelete: Cascade)
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   @@unique([userId, equipmentId])
   @@map("favorites")
 }
 
-// 招投标信息表
 model Tender {
-  id              String    @id @default(uuid())
-  title           String    // 标题
-  tenderId        String?   @unique @map("tender_id") // 招标公告ID
-  purchaser       String    // 采购单位
-  amount          Decimal?  @db.Decimal(15, 2) // 金额
-  status          TenderStatus @default(OPEN) // 状态
-  publishDate     DateTime  @map("publish_date") // 发布时间
-  deadline        DateTime? // 截止日期
-  region          String?   // 地区
-  category        String?   // 类目
-  url             String?   // 原文链接
-  content         String?   @db.Text // 内容摘要
-  
-  // 中标信息
-  winner          String?   // 中标企业
-  winAmount       Decimal?  @map("win_amount") @db.Decimal(15, 2) // 中标金额
-  
-  createdAt       DateTime  @default(now()) @map("created_at")
-  updatedAt       DateTime  @updatedAt @map("updated_at")
-  
+  id          String       @id @default(uuid())
+  title       String
+  tenderId    String?      @unique @map("tender_id")
+  purchaser   String
+  amount      Decimal?     @db.Decimal(15, 2)
+  status      TenderStatus @default(OPEN)
+  publishDate DateTime     @map("publish_date")
+  deadline    DateTime?
+  region      String?
+  category    String?
+  url         String?
+  content     String?
+  winner      String?
+  winAmount   Decimal?     @map("win_amount") @db.Decimal(15, 2)
+  createdAt   DateTime     @default(now()) @map("created_at")
+  updatedAt   DateTime     @updatedAt @map("updated_at")
+
   @@map("tenders")
 }
 
-// AI生成记录表
 model AIPromptLog {
-  id            String    @id @default(uuid())
-  userId        String    @map("user_id")
-  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-  
-  // 输入参数
-  category      String    // 装备类别
-  budget        String?   // 预算
-  requirements  String?   @db.Text // 核心参数要求
-  
-  // 输出结果
-  output        String    @db.Text // 生成的文档
-  
-  // 模型信息
-  model         String    @default("gpt-4") // 使用的模型
-  tokens        Int?      // 消耗的token数
-  
-  createdAt     DateTime  @default(now()) @map("created_at")
-  
+  id           String   @id @default(uuid())
+  userId       String   @map("user_id")
+  category     String
+  budget       String?
+  requirements String?
+  output       String
+  model        String   @default("gpt-4")
+  tokens       Int?
+  createdAt    DateTime @default(now()) @map("created_at")
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
   @@map("ai_prompt_logs")
 }
 
-// 资讯文章表
 model Article {
-  id            String    @id @default(uuid())
-  title         String
-  summary       String?   // 摘要
-  content       String?   @db.Text // 内容（可为空，外链）
-  coverImage    String?   @map("cover_image") // 封面图
-  author        String?   // 作者
-  source        String?   // 来源
-  sourceUrl     String?   @map("source_url") // 原文链接
-  category      String    // 分类
-  tags          String[]  @default([])
-  
-  // 类型: article(文章) | video(视频) | case(案例)
-  type          ContentType @default(ARTICLE)
-  
-  // 统计数据
-  viewCount     Int       @default(0) @map("view_count")
-  likeCount     Int       @default(0) @map("like_count")
-  
-  isPublished   Boolean   @default(true) @map("is_published")
-  publishAt     DateTime  @default(now()) @map("publish_at")
-  
-  createdAt     DateTime  @default(now()) @map("created_at")
-  updatedAt     DateTime  @updatedAt @map("updated_at")
-  
+  id          String      @id @default(uuid())
+  title       String
+  summary     String?
+  content     String?
+  coverImage  String?     @map("cover_image")
+  author      String?
+  source      String?
+  sourceUrl   String?     @map("source_url")
+  category    String
+  tags        String[]    @default([])
+  type        ContentType @default(ARTICLE)
+  viewCount   Int         @default(0) @map("view_count")
+  likeCount   Int         @default(0) @map("like_count")
+  isPublished Boolean     @default(true) @map("is_published")
+  publishAt   DateTime    @default(now()) @map("publish_at")
+  createdAt   DateTime    @default(now()) @map("created_at")
+  updatedAt   DateTime    @updatedAt @map("updated_at")
+
   @@map("articles")
 }
 
-// 枚举定义
+model ProcurementDemand {
+  id            String        @id @default(uuid())
+  title         String
+  description   String?
+  publisherId   String        @map("publisher_id")
+  publisherType UserRole      @map("publisher_type")
+  department    String?
+  region        String
+  contactName   String?       @map("contact_name")
+  contactPhone  String?       @map("contact_phone")
+  category      String
+  subCategory   String?       @map("sub_category")
+  budgetMin     Decimal?      @map("budget_min") @db.Decimal(15, 2)
+  budgetMax     Decimal?      @map("budget_max") @db.Decimal(15, 2)
+  quantity      Int?
+  requirements  Json?
+  deadline      DateTime?
+  validUntil    DateTime      @map("valid_until")
+  status        DemandStatus  @default(OPEN)
+  createdAt     DateTime      @default(now()) @map("created_at")
+  updatedAt     DateTime      @updatedAt @map("updated_at")
+  matches       DemandMatch[]
+
+  @@index([status, category])
+  @@index([region])
+  @@index([validUntil])
+  @@map("procurement_demands")
+}
+
+model SupplyOffer {
+  id             String        @id @default(uuid())
+  title          String
+  description    String?
+  supplierId     String        @map("supplier_id")
+  companyName    String        @map("company_name")
+  region         String
+  contactName    String?       @map("contact_name")
+  contactPhone   String?       @map("contact_phone")
+  category       String
+  subCategory    String?       @map("sub_category")
+  brand          String?
+  model          String?
+  price          Decimal?      @db.Decimal(15, 2)
+  quantity       Int?
+  specifications Json?
+  certificates   String[]
+  stockStatus    StockStatus   @default(IN_STOCK) @map("stock_status")
+  deliveryDays   Int?          @map("delivery_days")
+  status         OfferStatus   @default(ACTIVE)
+  validUntil     DateTime      @map("valid_until")
+  createdAt      DateTime      @default(now()) @map("created_at")
+  updatedAt      DateTime      @updatedAt @map("updated_at")
+  matches        DemandMatch[]
+
+  @@index([status, category])
+  @@index([region])
+  @@index([validUntil])
+  @@map("supply_offers")
+}
+
+model DemandMatch {
+  id             String            @id @default(uuid())
+  demandId       String            @map("demand_id")
+  offerId        String            @map("offer_id")
+  matchScore     Float             @map("match_score")
+  matchReasons   Json?             @map("match_reasons")
+  demandInterest InterestStatus    @default(PENDING) @map("demand_interest")
+  offerInterest  InterestStatus    @default(PENDING) @map("offer_interest")
+  status         MatchStatus       @default(PENDING)
+  contactHistory Json?             @map("contact_history")
+  createdAt      DateTime          @default(now()) @map("created_at")
+  updatedAt      DateTime          @updatedAt @map("updated_at")
+  demand         ProcurementDemand @relation(fields: [demandId], references: [id], onDelete: Cascade)
+  offer          SupplyOffer       @relation(fields: [offerId], references: [id], onDelete: Cascade)
+
+  @@unique([demandId, offerId])
+  @@index([status])
+  @@index([matchScore])
+  @@map("demand_matches")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+/// This model contains an expression index which requires additional setup for migrations. Visit https://pris.ly/d/expression-indexes for more info.
+model companies {
+  id                                                 String                @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name                                               String                @unique(map: "companies_name_unique")
+  name_en                                            String?
+  short_name                                         String?
+  is_manufacturer                                    Boolean?              @default(false)
+  is_supplier                                        Boolean?              @default(false)
+  partnership_status                                 String?               @default("none") @db.VarChar(50)
+  partnership_level                                  Int?                  @default(0)
+  subscription_start_date                            DateTime?             @db.Date
+  subscription_end_date                              DateTime?             @db.Date
+  contact_phone                                      String?               @db.VarChar(200)
+  contact_email                                      String?               @db.VarChar(200)
+  website                                            String?               @db.VarChar(500)
+  address                                            String?
+  postcode                                           String?               @db.VarChar(20)
+  contact_person                                     String?               @db.VarChar(200)
+  exhibition_booth                                   String?
+  exhibition_year                                    Int?
+  source                                             String?               @db.VarChar(50)
+  source_url                                         String?
+  company_scale                                      String?               @db.VarChar(50)
+  certification                                      String[]
+  product_count                                      Int?                  @default(0)
+  total_inquiries                                    Int?                  @default(0)
+  is_verified                                        Boolean?              @default(false)
+  is_active                                          Boolean?              @default(true)
+  created_at                                         DateTime?             @default(now()) @db.Timestamp(6)
+  updated_at                                         DateTime?             @default(now()) @db.Timestamp(6)
+  equipment_equipment_manufacturer_idTocompanies     Equipment[]           @relation("equipment_manufacturer_idTocompanies")
+  equipment_equipment_primary_supplier_idTocompanies Equipment[]           @relation("equipment_primary_supplier_idTocompanies")
+  equipment_suppliers                                equipment_suppliers[]
+  inquiries                                          inquiries[]
+
+  @@index([is_manufacturer], map: "idx_companies_is_manufacturer")
+  @@index([is_supplier], map: "idx_companies_is_supplier")
+  @@index([name], map: "idx_companies_name")
+  @@index([partnership_level(sort: Desc)], map: "idx_companies_partnership_level")
+  @@index([partnership_status], map: "idx_companies_partnership_status")
+  @@index([source], map: "idx_companies_source")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model equipment_suppliers {
+  id                    String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  equipment_id          String
+  supplier_id           String    @db.Uuid
+  supplier_type         String?   @default("reseller") @db.VarChar(50)
+  price_min             Decimal?  @db.Decimal(12, 2)
+  price_max             Decimal?  @db.Decimal(12, 2)
+  price_unit            String?   @db.VarChar(50)
+  is_available          Boolean?  @default(true)
+  lead_time_days        Int?
+  min_order_quantity    Int?      @default(1)
+  priority              Int?      @default(0)
+  recommendation_reason String?
+  inquiry_count         Int?      @default(0)
+  view_count            Int?      @default(0)
+  created_at            DateTime? @default(now()) @db.Timestamp(6)
+  updated_at            DateTime? @default(now()) @db.Timestamp(6)
+  equipment             Equipment @relation(fields: [equipment_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  companies             companies @relation(fields: [supplier_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@unique([equipment_id, supplier_id], map: "equipment_suppliers_unique")
+  @@index([is_available], map: "idx_equipment_suppliers_available")
+  @@index([equipment_id], map: "idx_equipment_suppliers_equipment")
+  @@index([priority(sort: Desc)], map: "idx_equipment_suppliers_priority")
+  @@index([supplier_id], map: "idx_equipment_suppliers_supplier")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model exhibition_suppliers {
+  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  company_name   String    @unique(map: "exhibition_suppliers_company_name_unique")
+  booth          String?
+  address        String?
+  postcode       String?   @db.VarChar(20)
+  phone          String?   @db.VarChar(200)
+  fax            String?   @db.VarChar(100)
+  email          String?   @db.VarChar(200)
+  website        String?   @db.VarChar(500)
+  contact_person String?   @db.VarChar(200)
+  products       String?
+  source         String?   @default("FIRE_2025") @db.VarChar(50)
+  created_at     DateTime? @default(now()) @db.Timestamp(6)
+  updated_at     DateTime? @default(now()) @db.Timestamp(6)
+
+  @@index([booth], map: "idx_exhibition_suppliers_booth")
+  @@index([company_name], map: "idx_exhibition_suppliers_company_name")
+  @@index([email], map: "idx_exhibition_suppliers_email")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model inquiries {
+  id                String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id           String
+  equipment_id      String
+  supplier_id       String?    @db.Uuid
+  quantity          Int?
+  budget_min        Decimal?   @db.Decimal(12, 2)
+  budget_max        Decimal?   @db.Decimal(12, 2)
+  requirements      String?
+  urgency           String?    @db.VarChar(50)
+  status            String?    @default("pending") @db.VarChar(50)
+  supplier_response String?
+  quoted_price      Decimal?   @db.Decimal(12, 2)
+  response_time     DateTime?  @db.Timestamp(6)
+  created_at        DateTime?  @default(now()) @db.Timestamp(6)
+  updated_at        DateTime?  @default(now()) @db.Timestamp(6)
+  equipment         Equipment  @relation(fields: [equipment_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  companies         companies? @relation(fields: [supplier_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  users             User       @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([equipment_id], map: "idx_inquiries_equipment")
+  @@index([status], map: "idx_inquiries_status")
+  @@index([supplier_id], map: "idx_inquiries_supplier")
+  @@index([user_id], map: "idx_inquiries_user")
+}
+
 enum UserRole {
-  GUEST       // 游客
-  FIREFIGHTER // 消防核心用户
-  SUPPLIER    // 供应商
-  ADMIN       // 管理员
+  GUEST
+  FIREFIGHTER
+  SUPPLIER
+  ADMIN
 }
 
 enum UserStatus {
-  ACTIVE    // 活跃
-  INACTIVE  // 未激活
-  SUSPENDED // 停用
+  ACTIVE
+  INACTIVE
+  SUSPENDED
 }
 
 enum SubscriptionTier {
-  FREE      // 免费版
-  PRO       // 专业版
-  ENTERPRISE // 企业版
+  FREE
+  PRO
+  ENTERPRISE
 }
 
 enum TenderStatus {
-  OPEN      // 招标中
-  CLOSED    // 已截止
-  AWARDED   // 已中标
-  CANCELLED // 已流标
+  OPEN
+  CLOSED
+  AWARDED
+  CANCELLED
 }
 
 enum ContentType {
-  ARTICLE // 文章
-  VIDEO   // 视频
-  CASE    // 案例
-}// 供需撮合中心数据模型
-// 添加到 Prisma Schema
-
-// 采购需求表（消防队/政府发布）
-model ProcurementDemand {
-  id            String    @id @default(uuid())
-  title         String    // 需求标题
-  description   String?   @db.Text // 详细描述
-  
-  // 发布方信息
-  publisherId   String    @map("publisher_id")
-  publisherType UserRole  @map("publisher_type") // FIREFIGHTER 或 ADMIN
-  department    String?   // 部门/单位名称
-  region        String    // 所在地区（省市区）
-  contactName   String?   @map("contact_name")
-  contactPhone  String?   @map("contact_phone")
-  
-  // 需求详情
-  category      String    // 装备类别
-  subCategory   String?   @map("sub_category")
-  budgetMin     Decimal?  @map("budget_min") @db.Decimal(15, 2) // 预算下限
-  budgetMax     Decimal?  @map("budget_max") @db.Decimal(15, 2) // 预算上限
-  quantity      Int?      // 采购数量
-  requirements  Json?     // 技术参数要求（JSON格式）
-  
-  // 时间要求
-  deadline      DateTime? // 期望交付日期
-  validUntil    DateTime  @map("valid_until") // 需求有效期
-  
-  // 状态
-  status        DemandStatus @default(OPEN) // OPEN/CLOSED/MATCHED/COMPLETED
-  
-  // 匹配记录
-  matches       DemandMatch[]
-  
-  createdAt     DateTime  @default(now()) @map("created_at")
-  updatedAt     DateTime  @updatedAt @map("updated_at")
-  
-  @@map("procurement_demands")
-  @@index([status, category])
-  @@index([region])
-  @@index([validUntil])
+  ARTICLE
+  VIDEO
+  CASE
 }
 
-// 供应发布表（厂商/贸易商发布）
-model SupplyOffer {
-  id            String    @id @default(uuid())
-  title         String    // 供应标题
-  description   String?   @db.Text // 详细描述
-  
-  // 发布方信息
-  supplierId    String    @map("supplier_id")
-  companyName   String    @map("company_name")
-  region        String    // 所在地区
-  contactName   String?   @map("contact_name")
-  contactPhone  String?   @map("contact_phone")
-  
-  // 产品信息
-  category      String    // 装备类别
-  subCategory   String?   @map("sub_category")
-  brand         String?   // 品牌
-  model         String?   // 型号
-  price         Decimal?  @db.Decimal(15, 2) // 单价
-  quantity      Int?      // 可供应数量
-  specifications Json?    // 技术参数
-  
-  // 资质认证
-  certificates  String[]  // 认证证书（3C、消防认证等）
-  
-  // 库存状态
-  stockStatus   StockStatus @map("stock_status") @default(IN_STOCK) // IN_STOCK/PRE_ORDER/CUSTOM
-  deliveryDays  Int?        @map("delivery_days") // 交货周期（天）
-  
-  // 状态
-  status        OfferStatus @default(ACTIVE) // ACTIVE/SOLD_OUT/EXPIRED
-  validUntil    DateTime    @map("valid_until")
-  
-  // 匹配记录
-  matches       DemandMatch[]
-  
-  createdAt     DateTime  @default(now()) @map("created_at")
-  updatedAt     DateTime  @updatedAt @map("updated_at")
-  
-  @@map("supply_offers")
-  @@index([status, category])
-  @@index([region])
-  @@index([validUntil])
-}
-
-// 供需匹配记录表
-model DemandMatch {
-  id              String      @id @default(uuid())
-  
-  demandId        String      @map("demand_id")
-  demand          ProcurementDemand @relation(fields: [demandId], references: [id], onDelete: Cascade)
-  
-  offerId         String      @map("offer_id")
-  offer           SupplyOffer @relation(fields: [offerId], references: [id], onDelete: Cascade)
-  
-  // 匹配分数（算法计算）
-  matchScore      Float       @map("match_score") // 0-100
-  matchReasons    Json?       @map("match_reasons") // 匹配原因（如：["地域匹配", "预算匹配"]）
-  
-  // 双方意向
-  demandInterest  InterestStatus @map("demand_interest") @default(PENDING) // PENDING/INTERESTED/NOT_INTERESTED
-  offerInterest   InterestStatus @map("offer_interest") @default(PENDING)
-  
-  // 撮合状态
-  status          MatchStatus @default(PENDING) // PENDING/CONTACTED/NEGOTIATING/COMPLETED/CANCELLED
-  
-  // 沟通记录
-  contactHistory  Json?       @map("contact_history") // 联系记录
-  
-  createdAt       DateTime    @default(now()) @map("created_at")
-  updatedAt       DateTime    @updatedAt @map("updated_at")
-  
-  @@unique([demandId, offerId])
-  @@map("demand_matches")
-  @@index([status])
-  @@index([matchScore])
-}
-
-// 枚举定义
 enum DemandStatus {
-  OPEN      // 开放中
-  MATCHED   // 已匹配
-  NEGOTIATING // 洽谈中
-  COMPLETED // 已完成
-  CANCELLED // 已取消
-  EXPIRED   // 已过期
+  OPEN
+  MATCHED
+  NEGOTIATING
+  COMPLETED
+  CANCELLED
+  EXPIRED
 }
 
 enum OfferStatus {
-  ACTIVE    // 在售
-  SOLD_OUT  // 售罄
-  EXPIRED   // 已过期
-  WITHDRAWN // 已下架
+  ACTIVE
+  SOLD_OUT
+  EXPIRED
+  WITHDRAWN
 }
 
 enum StockStatus {
-  IN_STOCK    // 现货
-  PRE_ORDER   // 预订
-  CUSTOM      // 定制
-  LIMITED     // 限量
+  IN_STOCK
+  PRE_ORDER
+  CUSTOM
+  LIMITED
 }
 
 enum InterestStatus {
-  PENDING          // 待反馈
-  INTERESTED       // 有意向
-  NOT_INTERESTED   // 无意向
-  CONTACTED        // 已联系
+  PENDING
+  INTERESTED
+  NOT_INTERESTED
+  CONTACTED
 }
 
 enum MatchStatus {
-  PENDING      // 待撮合
-  CONTACTED    // 已联系
-  NEGOTIATING  // 洽谈中
-  COMPLETED    // 已完成
-  CANCELLED    // 已取消
+  PENDING
+  CONTACTED
+  NEGOTIATING
+  COMPLETED
+  CANCELLED
 }
