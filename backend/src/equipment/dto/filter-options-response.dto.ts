@@ -13,10 +13,10 @@ export class CategoryOptionDto {
   @ApiProperty({ description: '该分类下的装备数量', example: 234 })
   count: number;
 
-  @ApiProperty({ description: '子分类（具体产品）', type: [Object], required: false })
+  @ApiProperty({ description: '子分类（二级分类）', type: [Object], required: false })
   subCategories?: Array<{
-    name: string;
-    standard: string;
+    value: string;
+    label: string;
     count: number;
   }>;
 }
