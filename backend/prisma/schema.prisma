@@ -325,6 +325,7 @@ model equipment_suppliers {
   price_min             Decimal?  @db.Decimal(12, 2)
   price_max             Decimal?  @db.Decimal(12, 2)
   price_unit            String?   @db.VarChar(50)
+  price_type            String?   @default("estimate") @db.VarChar(20)
   is_available          Boolean?  @default(true)
   lead_time_days        Int?
   min_order_quantity    Int?      @default(1)
