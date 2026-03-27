@@ -283,7 +283,7 @@ export class EquipmentService {
    * 获取筛选条件统计
    */
   async getFilterOptions(): Promise<FilterOptionsResponseDto> {
-    // 1. 统计各分类的装备数量
+    // 1. 统计各分类的装备数量（包括子分类）
     const categoryStats = await this.prisma.equipment.groupBy({
       by: ['category'],
       _count: {
@@ -291,24 +291,67 @@ export class EquipmentService {
       },
     });
 
-    const categories = categoryStats.map(stat => ({
-      value: stat.category,
-      label: this.getCategoryLabel(stat.category),
-      count: stat._count.id,
-      subCategories: [], // TODO: 统计子分类
-    }));
+    // 统计每个一级分类下的子分类
+    const categoriesWithSub = await Promise.all(
+      categoryStats.map(async (stat) => {
+        const subCategoryStats = await this.prisma.equipment.groupBy({
+          by: ['subCategory'],
+          where: {
+            category: stat.category,
+            subCategory: { not: null },
+          },
+          _count: {
+            id: true,
+          },
+        });
 
-    // 2. 统计价格区间
-    const priceRanges = [
-      { min: 0, max: 50000, label: '5万以下', count: 0 },
-      { min: 50000, max: 100000, label: '5-10万', count: 0 },
-      { min: 100000, max: 200000, label: '10-20万', count: 0 },
-      { min: 200000, max: 500000, label: '20-50万', count: 0 },
-      { min: 500000, max: 1000000, label: '50-100万', count: 0 },
-      { min: 1000000, max: 99999999, label: '100万以上', count: 0 },
+        return {
+          value: stat.category,
+          label: this.getCategoryLabel(stat.category),
+          count: stat._count.id,
+          subCategories: subCategoryStats.map(sub => ({
+            value: sub.subCategory,
+            label: sub.subCategory,
+            count: sub._count.id,
+          })),
+        };
+      }),
+    );
+
+    // 2. 统计价格区间（根据 equipment_suppliers 表的实际价格数据）
+    const priceRangeDefs = [
+      { min: 0, max: 50000, label: '5万以下' },
+      { min: 50000, max: 100000, label: '5-10万' },
+      { min: 100000, max: 200000, label: '10-20万' },
+      { min: 200000, max: 500000, label: '20-50万' },
+      { min: 500000, max: 1000000, label: '50-100万' },
+      { min: 1000000, max: 99999999, label: '100万以上' },
     ];
 
-    // TODO: 统计每个价格区间的装备数量（需要 JOIN equipment_suppliers）
+    // 为每个价格区间统计装备数量
+    const priceRanges = await Promise.all(
+      priceRangeDefs.map(async (range) => {
+        const count = await this.prisma.equipment.count({
+          where: {
+            equipment_suppliers: {
+              some: {
+                AND: [
+                  { price_max: { gte: range.min } },
+                  { price_min: { lte: range.max } },
+                ],
+              },
+            },
+          },
+        });
+
+        return {
+          min: range.min,
+          max: range.max,
+          label: range.label,
+          count,
+        };
+      }),
+    );
 
     // 3. 统计认证标准
     const equipmentWithStandards = await this.prisma.equipment.findMany({
@@ -361,7 +404,7 @@ export class EquipmentService {
 
     return {
       success: true,
-      categories,
+      categories: categoriesWithSub,
       priceRanges,
       standards,
       partnershipStatus,
