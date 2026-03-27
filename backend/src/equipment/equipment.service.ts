@@ -92,13 +92,27 @@ export class EquipmentService {
     }
 
     // 4. 价格筛选（需要 JOIN equipment_suppliers）
+    // 价格区间筛选逻辑：供应商的价格区间与查询的价格区间有交集
+    // 即：price_max >= priceRange.min AND price_min <= priceRange.max
     const priceFilter: any = {};
     if (priceRange) {
+      const conditions: any[] = [];
       if (priceRange.min !== undefined) {
-        priceFilter.price_min = { gte: priceRange.min };
+        // 供应商的最大价格 >= 用户查询的最小价格
+        conditions.push({ price_max: { gte: priceRange.min } });
       }
       if (priceRange.max !== undefined) {
-        priceFilter.price_max = { lte: priceRange.max };
+        // 供应商的最小价格 <= 用户查询的最大价格
+        conditions.push({ price_min: { lte: priceRange.max } });
+      }
+      if (conditions.length > 0) {
+        Object.assign(priceFilter, { AND: conditions });
+        
+        // 🔥 关键修复：在主查询中添加价格筛选条件
+        // 确保装备至少有一个供应商符合价格区间
+        whereConditions.equipment_suppliers = {
+          some: priceFilter,
+        };
       }
     }
 
@@ -106,6 +120,23 @@ export class EquipmentService {
     const supplierFilter: any = {};
     if (partnershipStatus && partnershipStatus.length > 0) {
       supplierFilter.partnershipStatus = { in: partnershipStatus };
+      
+      // 🔥 如果已经有价格筛选，需要合并供应商状态筛选
+      if (whereConditions.equipment_suppliers) {
+        whereConditions.equipment_suppliers.some = {
+          AND: [
+            priceFilter,
+            { companies: supplierFilter },
+          ],
+        };
+      } else {
+        // 如果没有价格筛选，只添加供应商状态筛选
+        whereConditions.equipment_suppliers = {
+          some: {
+            companies: supplierFilter,
+          },
+        };
+      }
     }
 
     // 查询装备

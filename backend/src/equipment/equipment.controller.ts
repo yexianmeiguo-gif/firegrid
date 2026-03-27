@@ -6,7 +6,7 @@ import { FilterEquipmentResponseDto } from './dto/equipment-response.dto';
 import { FilterOptionsResponseDto } from './dto/filter-options-response.dto';
 
 @ApiTags('装备')
-@Controller('api/equipment')
+@Controller('equipment')
 export class EquipmentController {
   constructor(private equipmentService: EquipmentService) {}
 
