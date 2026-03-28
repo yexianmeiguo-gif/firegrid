@@ -38,15 +38,26 @@ export class EquipmentService {
    */
   private getCategoryLabel(categoryKey: string): string {
     const labels = {
-      fire_detection: '火灾报警系统',
-      fire_extinguisher: '灭火器',
-      sprinkler_system: '自动喷水灭火系统',
-      hydrant_equipment: '消火栓系统',
-      fire_truck: '消防车辆',
-      personal_protection: '个人防护装备',
-      rescue_tools: '消防救援工具',
-      emergency_lighting: '消防应急照明',
-      escape_equipment: '逃生设备',
+      'fire_detection': '火灾报警系统',
+      'fire-detection': '火灾报警系统',
+      'fire_extinguisher': '灭火器',
+      'fire-extinguisher': '灭火器',
+      'fire-extinguishing': '灭火设备',
+      'sprinkler_system': '自动喷水灭火系统',
+      'hydrant_equipment': '消火栓系统',
+      'fire_truck': '消防车辆',
+      'fire-truck': '消防车辆',
+      'personal_protection': '个人防护装备',
+      'personal-protection': '个人防护装备',
+      'rescue_tools': '消防救援工具',
+      'rescue-tools': '消防救援工具',
+      'emergency_lighting': '消防应急照明',
+      'escape_equipment': '逃生设备',
+      'command-vehicle': '指挥车辆',
+      'communication': '通讯设备',
+      'detection-equipment': '探测设备',
+      'logistics-vehicle': '后勤车辆',
+      'other': '其他装备',
     };
     return labels[categoryKey] || categoryKey;
   }
